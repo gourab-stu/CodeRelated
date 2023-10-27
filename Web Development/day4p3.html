@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inline, Internal, External CSS</title>
+    <!-- External css file is mentioned in the head using the link tag -->
+    <link rel="stylesheet" href="day4p3.css">
+    <!-- Internal css is mentioned in the head using the style tag -->
+    <style>
+        p {
+            color: blueviolet;
+            background-color: darkgray;
+        }
+        body {
+            color: cadetblue;
+            background-color: bisque;
+        }
+        h3 {
+            border: 2px solid purple;
+        }
+    </style>
+    <!-- Internal or External whichever css is last edited will be prioritized -->
+</head>
+
+<body>
+    <h3>Inline CSS</h3>
+    <!-- Inline css is mentioned in the tag opening and has 1st priority -->
+    <p style="color: crimson; background-color:yellowgreen;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate veniam itaque, vitae unde quibusdam obcaecati velit et cumque at fuga?</p>
+    <h3>Internal / External CSS</h3>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate veniam itaque, vitae unde quibusdam obcaecati velit et cumque at fuga?</p>
+    <p id="one" class="1st">This is a paragraph</p>
+    <p id="two" class="2nd temporary">This is another paragraph</p>
+    <span id="one" class="1st">This is span</span>
+    <span id="two" class="2nd temporary">This is another span</span>
+    <footer id="one" class="1st">This is footer</footer>
+    <footer id="two" class="2nd temporary">This is another footer</footer>
+</body>
+
+</html>

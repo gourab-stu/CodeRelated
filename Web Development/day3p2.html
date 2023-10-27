@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forms and input tags</title>
+</head>
+<body>
+    <h3>Forms</h3>
+    <!-- this 'action' attribute means that the data that has been entered by user is going to the backend.php file -->
+    <form action="backend.php">
+        <label for="name">Name</label>
+        <div>
+            <input type="text" name="myName" id="name">
+        </div>
+        <br>
+        <label for="roll">Roll</label>
+        <div>
+            <input type="number" name="myRoll" id="roll">
+        </div>
+        <br>
+        <label for="email">Email</label>
+        <div>
+            <input type="email" name="myEmail" id="email">
+        </div>
+        <br>
+        <label for="dob">Date of Birth</label>
+        <div>
+            <input type="date" name="myBirthDate" id="dob">
+        </div>
+        <br>
+        <div>
+            Are you a student <input type="checkbox" name="amistudent" checked>
+        </div>
+        <br>
+        <label for="gender">Gender</label>
+        <div>
+            Male <input type="radio" name="myGender" id="gender"> Female <input type="radio" name="myGender" id="gender"> Other <input type="radio" name="myGender" id="gender">
+        </div>
+        <br>
+        <label for="about">Write about yourself</label>
+        <div>
+            <textarea name="myAbout" id="about" cols="30" rows="10">Write here</textarea>
+        </div>
+        <br>
+        <label for="pay">Mode of payment</label>
+        <div>
+            <select name="modeOfPay" id="pay">
+                <option value="on" selected>Online</option>
+                <option value="off">Offline</option>
+            </select>
+        </div>
+        <br>
+        <div>
+            <input type="submit" value="Submit now">
+            <input type="reset" value="Reset now">
+        </div>
+    </form>
+</body>
+</html>

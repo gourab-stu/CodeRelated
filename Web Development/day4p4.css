@@ -1,0 +1,16 @@
+body {
+    color: azure;
+    background-color: rgb(255, 175, 251);
+    font-family: Candara;
+}
+
+p {
+    text-align: justify;
+}
+
+h2 {
+    background-image: url(peakpx.jpg);
+    font-size: 48px;
+    text-align: center;
+    font-family: Vivaldi;
+}
