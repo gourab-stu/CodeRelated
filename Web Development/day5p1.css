@@ -4,6 +4,34 @@
     padding: 2px;
 }
 
+.navbar {
+    background-color: rgb(71 185 63);
+    border-radius: 8px;
+    margin: 23px 55px 0px 55px;
+}
+
+.navbar ul {
+    overflow: auto;
+}
+
+.navbar li {
+    float: left;
+    list-style: none;
+    padding: 0px 12px;
+}
+
+.navbar li a {
+    text-decoration: none;
+}
+
+.search {
+    margin: 0px 0px 0px 715px;
+}
+
+#search {
+    border-radius: 5px;
+}
+
 h2 {
     margin: 50px 0px 0px 0px;
     text-align: center;
