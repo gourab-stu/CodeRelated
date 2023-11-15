@@ -25,24 +25,25 @@
 }
 
 .search {
-    margin: 0px 0px 0px 715px;
+    margin: 0px 0px 0px 694px;
 }
 
 #search {
+    margin-left: 6px;
     border-radius: 5px;
 }
 
 h2 {
     margin: 50px 0px 0px 0px;
     text-align: center;
-    font-family: 'Vivaldi';
+    font-family: 'Playball', sans-serif;
     font-size: 40px;
 }
 
 body {
     text-align: justify;
     background-color: #ffd6fd;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Ubuntu', sans-serif;
 }
 
 .heading {
