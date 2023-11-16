@@ -25,7 +25,7 @@
 }
 
 .search {
-    margin: 0px 0px 0px 694px;
+    margin: 0px 0px 0px 585px;
 }
 
 #search {
@@ -88,4 +88,12 @@ body {
 
 #hyperlink:visited {
     color: none;
+}
+
+#first {
+    background-image: url(https://images.squarespace-cdn.com/content/v1/56b312c32b8dde025b97c861/1547464627576-6VZM3U0H7OP4EU6NUTM5/adult-app-blur-1440722.jpg?format=2500w);
+}
+
+#second {
+    background-image: url(https://my-media.apjonlinecdn.com/magefan_blog/5_Components_Of_A_Computer_And_Their_Benefits.jpg);
 }
