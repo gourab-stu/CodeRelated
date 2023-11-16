@@ -15,6 +15,7 @@
 }
 
 .navbar li {
+    margin-top: 9px;
     float: left;
     list-style: none;
     padding: 0px 12px;
@@ -96,4 +97,14 @@ body {
 
 #second {
     background-image: url(https://my-media.apjonlinecdn.com/magefan_blog/5_Components_Of_A_Computer_And_Their_Benefits.jpg);
+}
+
+#third {
+    background-image: url(https://megafurniture.sg/cdn/shop/articles/your-complete-washing-machine-buying-guide-megafurniture_1024x1024.jpg?v=1699228347);
+}
+#searchBox {
+    margin-top: 0px;
+    float: right;
+    height: fit-content;
+    width: fit-content;
 }
