@@ -4,4 +4,4 @@ desktop.ini
 *.exe
 *.class
 .vscode/
-./a.out
+a.out
