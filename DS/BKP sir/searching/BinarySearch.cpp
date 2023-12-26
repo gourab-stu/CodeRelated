@@ -14,28 +14,28 @@ void input() {
     }
 }
 
-int binarySearch(int searchValue) {
-    int low = 0, high = size - 1, mid, searchResults = 0;
+void binarySearch(int searchValue) {
+    int low = 0, high = size - 1, mid;
     while (low <= high) {
         mid = (low + high) / 2;
-        if (arr[mid] == searchValue) 
-            searchResults++;
-        else {
+        if (arr[mid] == searchValue) {
+            std::cout << "Search value found" << std::endl;
+            return;
+        } else {
             if (searchValue < arr[mid])
                 high = mid - 1;
             else
                 low = mid + 1;
         }
     }
-    return searchResults;
+    std::cout << "Search value not found" << std::endl;
 }
 
 int main() {
-    int value, count;
+    int value;
     input();
     std::cout << "Enter the value to search: ";
     std::cin >> value;
-    count = binarySearch(value);
-    std::cout << count << " search results found" << std::endl;
+    binarySearch(value);
     return 0;
 }
