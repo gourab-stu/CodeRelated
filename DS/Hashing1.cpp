@@ -1,12 +1,11 @@
 #include <iostream>
-#include <stdlib.h>
 
 class hashing {
     int arr[10], newArr[10], size;
 public:
     hashing(int temp, int tempArr[]) {
         size = temp;
-        std::copy(tempArr, tempArr + size + 1, arr);
+        std::copy(tempArr,tempArr + size, arr);
     }
 
     int maxValueInArray(int arr[]) {
@@ -28,15 +27,16 @@ public:
         return count;
     }
 
-    int power(int p) {
-        if (p == 1)
-            return 10;
-        else
-            return 10 * power(--p);
+    int power(int p, int temp = 1) {
+        while (p > 0) {
+            temp = 10 * temp;
+            p--;
+        }
+        return temp;
     }
 
     void hash1() {
-        int newSize = power(numberOfDigits(maxValueInArray(arr))),  r;
+        int newSize = power(numberOfDigits(arr[maxValueInArray(arr)]) - 1),  r;
         for (int i = 0; i < newSize; i++) 
             newArr[i] = 0;
         for (int i = 0; i < size; i++) {
@@ -54,37 +54,38 @@ public:
 };
 
 int main() {
-    int arr[10], choice, i = -1;
+    int arr[10], choice, i = 0;
     while (1) {
-        std::cout << "Enter 1 to input data\nEnter 2 to stop and display\nEnter 0 to exit\nEnter choice: ";
+        std::cout << "Enter 1 to input data\nEnter 2 to stop and display\nEnter choice: ";
         std::cin >> choice;
         switch (choice) {
             case 1: {
                 std::cout << "Enter data no " << (i + 1) << ": ";
-                std::cin >> arr[++i];
-                system("cls");
-                std::cout << (i + 1) << " data(s) entered successfully" << std::endl;
+                std::cin >> arr[i];
+                system("clear");
+                std::cout << (++i) << " data(s) entered successfully" << std::endl;
                 break;
             }
             case 2: {
+                if (i == 0)
+                    break;
                 hashing ob(i, arr);
                 ob.hash1();
-                system("cls");
+                system("clear");
                 std::cout << "Printing the array after hashing" << std::endl;
                 ob.displayHashedArray();
                 break;
             }
-            case 0: {
-                std::cout << "End of program" << std::endl;
-                break;
-            }
             default: {
+                system("clear");
                 std::cout << "Invalid input entered" << std::endl;
                 break;
             }
         }
-        if (choice == 2 || choice == 0)
+        if (choice == 2) {
+            std::cout << "End of program" << std::endl;
             break;
+        }
     }
     return 0;
 }
