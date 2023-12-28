@@ -1,7 +1,6 @@
 #include <iostream>
 
-int arr[100];
-int size;
+int arr[100], size;
 
 void input() {
     std::cout << "Enter the size of the array: ";
