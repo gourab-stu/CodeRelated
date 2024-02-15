@@ -12,7 +12,7 @@ int main()
     cin>>n;
     cout<<"Fibonacci series upto "<<n<<" terms is:"<<endl;
     cout<<a<<" "<<b<<" ";
-    for(i=3; i<=n; i++)
+    for(i=2; i<=n; i++)
     {
         c=a+b;
         cout<<c<<" ";
