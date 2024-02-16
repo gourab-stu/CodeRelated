@@ -1,8 +1,9 @@
 #include <stdio.h>
-#include <conio.h>
 
 int main() {
-    printf("Hello World 1");
+    int i = 0;
+    printf("Hello World %d", ++i);
     main();
-    printf("Hello World 1");
+    printf("Hello World %d", ++i);
+    return 0;
 }
