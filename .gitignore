@@ -3,5 +3,7 @@ desktop.ini
 *.ini
 *.exe
 *.class
+*.nam
+*.tr
 .vscode/
 a.out
