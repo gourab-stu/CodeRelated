@@ -2,15 +2,15 @@
 set ns [new Simulator]
 
 #Open the nam trace file
-set nf [open out.nam w]
-$ns namtrace-all $nf
+set nfff [open out.nam w]
+$ns namtrace-all $nfff
 
 #Define a 'finish' procedure
 proc finish {} {
-    global ns nf
+    global ns nfff
     $ns flush-trace
     #Close the trace file
-    close $nf
+    close $nfff
     #Executenam on the trace file
     exec nam out.nam &
     exit 0

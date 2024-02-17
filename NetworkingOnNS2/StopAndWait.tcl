@@ -10,7 +10,7 @@ $ns namtrace-all $nf
 set f [open stop.tr w]
 $ns trace-all $f
 $ns duplex-link $n0 $n1 0.2Mb 200ms DropTail
-$ns duplex-link-op $n0 $n1 orient right
+$ns duplex-link-op $n0 $n1 orient left
 $ns queue-limit $n0 $n1 10
 Agent/TCP set nam_tracevar_ true
 set tcp [new Agent/TCP]
