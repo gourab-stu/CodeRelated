@@ -3,10 +3,10 @@ set ns [new Simulator]
 $ns rtproto DV
 $ns macType Mac/Sat/UnslottedAloha
 #Open the nam trace file
-set nf [open aloha.nam w]
+set nf [open HDLC.nam w]
 $ns namtrace-all $nf
 #Open the output files
-set f0 [open aloha.tr w]
+set f0 [open HDLC.tr w]
 $ns trace-all $f0
 #Define a finish procedure
 proc finish {} {
@@ -15,7 +15,7 @@ proc finish {} {
     #Close the trace file
     close $f0
     close $nf
-    exec nam aloha.nam &
+    exec nam HDLC.nam &
     exit 0
 }
 # Create six nodes

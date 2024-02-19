@@ -1,7 +1,7 @@
 set ns [ new Simulator ]
-set nf [ open lab2.nam w ]
+set nf [ open TransmissionPingMsg.nam w ]
 $ns namtrace-all $nf
-set tf [ open lab2.tr w ]
+set tf [ open TransmissionPingMsg.tr w ]
 $ns trace-all $tf
 set n0 [$ns node]
 set n1 [$ns node]
@@ -37,8 +37,8 @@ $ns queue-limit $n0 $n4 5
 $ns queue-limit $n2 $n4 3
 $ns queue-limit $n4 $n5 2
 Agent/Ping instproc recv {from rtt} {
-$self instvar node_
-puts "node [$node_ id] received answer from $from with round trip time $rtt msec"
+    $self instvar node_
+    puts "node [$node_ id] received answer from $from with round trip time $rtt msec"
 }
 # please provide space between $node_ and id. No space between $ and from. No space between and $ and rtt
 $ns connect $p1 $p5
@@ -48,7 +48,7 @@ proc finish { } {
     $ns flush-trace
     close $nf
     close $tf
-    exec nam lab2.nam &
+    exec nam TransmissionPingMsg.nam &
     exit 0
 }
 $ns at 0.1 "$p1 send"

@@ -3,14 +3,16 @@
 set ns [new Simulator]
 set n0 [$ns node]
 set n1 [$ns node]
+
 $ns at 0.0 "$n0 label Sender"
 $ns at 0.0 "$n1 label Receiver"
-set nf [open stop.nam w]
+
+set nf [open StopAndWait.nam w]
 $ns namtrace-all $nf
-set f [open stop.tr w]
+set f [open StopAndWait.tr w]
 $ns trace-all $f
 $ns duplex-link $n0 $n1 0.2Mb 200ms DropTail
-$ns duplex-link-op $n0 $n1 orient left
+$ns duplex-link-op $n0 $n1 orient right
 $ns queue-limit $n0 $n1 10
 Agent/TCP set nam_tracevar_ true
 set tcp [new Agent/TCP]
@@ -52,7 +54,7 @@ proc finish {} {
     $ns flush-trace
     close $nf
     puts "running nam..."
-    exec nam stop.nam &
+    exec nam StopAndWait.nam &
     exit 0
 }
 $ns run

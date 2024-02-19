@@ -1,17 +1,18 @@
 #Create a simulator object
 set ns [new Simulator]
 #Open the nam trace file
-set nf [open out.nam w]
+set nf [open StarTopology.nam w]
 $ns namtrace-all $nf
 #Define a 'finish' procedure
 proc finish {} {
-global ns nf
-$ns flush-trace
-#Close the trace file
-close $nf
-#Executenam on the trace file
-exec nam out.nam &
-exit0}
+    global ns nf
+    $ns flush-trace
+    #Close the trace file
+    close $nf
+    #Executenam on the trace file
+    exec nam StarTopology.nam &
+    exit 0
+}
 #Create six nodes
 set n0 [$ns node]
 set n1 [$ns node]

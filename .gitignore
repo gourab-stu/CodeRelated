@@ -6,5 +6,9 @@ desktop.ini
 *.class
 *.nam
 *.tr
+# *.excalidraw
+# *.excalidraw.json
+# *.excalidraw.svg
+# *.excalidraw.png
 .vscode/
 a.out

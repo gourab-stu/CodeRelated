@@ -5,9 +5,9 @@ set n0 [$ns node]
 set n1 [$ns node]
 $ns at 0.0 "$n0 label Sender"
 $ns at 0.0 "$n1 label Receiver"
-set nf [open sliding.nam w]
+set nf [open SlidingWindow.nam w]
 $ns namtrace-all $nf
-set f [open sliding.tr w]
+set f [open SlidingWindow.tr w]
 $ns trace-all $f
 $ns duplex-link $n0 $n1 0.2Mb 200ms DropTail
 $ns duplex-link-op $n0 $n1 orient right
@@ -51,7 +51,7 @@ proc finish {} {
     $ns flush-trace
     # close $nf
     puts "running nam..."
-    exec nam sliding.nam &
+    exec nam SlidingWindow.nam &
     exit 0
 }
 $ns run
