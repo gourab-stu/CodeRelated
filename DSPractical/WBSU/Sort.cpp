@@ -28,9 +28,9 @@ public:
     }
 
     void SelectionSort() {
-        for (int i = 0; i <= (size - 2); i++) {
+        for(int i = 0; i <= (size - 2); i++) {
             int index = i, temp;
-            for (int j = i + 1; j <= (size - 1); j++)
+            for(int j = i + 1; j <= (size - 1); j++)
                 if (arr[j] < arr[index])
                     index = j;
             temp = arr[index];
