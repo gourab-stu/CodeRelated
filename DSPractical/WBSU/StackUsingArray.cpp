@@ -24,7 +24,7 @@ void display() {
    if(top>=0) {
       std::cout<<"Stack elements are:";
       for(int i=top; i>=0; i--)
-      std::cout<<stack[i]<<" ";
+         std::cout<<stack[i]<<" ";
       std::cout<<std::endl;
    } else
    std::cout<<"Stack is empty";

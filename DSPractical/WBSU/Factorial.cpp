@@ -1,6 +1,6 @@
 #include<iostream>
 
-int fact(int n) {
+long fact(int n) {
     if((n == 1) || (n == 0))
         return 1;
     else
@@ -8,7 +8,8 @@ int fact(int n) {
 }
 
 int main() {
-    int n, f = 1, choice;
+    int n, choice;
+    long f = 1;
     std::cout << "Enter the number to find factorial: ";
     std::cin >> n;
     std::cout << "\t1. Using iteration\n\t2. Using recursion\n\t3. Exit\nEnter choice: ";

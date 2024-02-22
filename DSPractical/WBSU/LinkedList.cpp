@@ -1,228 +1,206 @@
-#include<iostream>
-#include<stdlib.h>
-#define readData std::cout << "Enter data to insert: ";std::cin >> data
-#define readPosition std::cout << "Enter position: ";std::cin >> position
+#include <iostream>
 
 struct node {
     int data;
-    struct node *link;
+    node *next;
 };
 
-class LinkedList {
-    struct node *head;
-    int size, data, position;
+class linked_list {
+private:
+    node *head, *tail;
 public:
-    LinkedList(){
-        size = 0;
-        data = 0;
-        position = 0;
+    linked_list() {
+        head = NULL;
+        tail = NULL;
     }
-
-    int check() {
-        return size;
-    }
-
-    int insertAtBeginning() {
-        readData;
-        // when the list is empty and we are creating head node
-        if(size == 0) {
-            head = new node;
-            head->data = data;
-            head->link = NULL;
-            size++;
-        }
-        // when adding a node at the beginning of an existing list
-        else {
-            struct node *temp;
-            temp = new node;
-            temp->data = data;
-            temp->link = head;
-            head = temp;
-            size++;
-        }
-        return size;
-    }
-
-    int insertAtEnd() {
-        readData;
-        struct node *temp, *temp1;
-        temp = head;
-        while(temp->link != NULL) {
-            temp = temp->link;
-        }
-        temp1 = new node;
-        temp1->data = data;
-        temp1->link = NULL;
-        temp->link = temp1;
-        size++;
-        return size;
-    }
-
-    int insert() {
-        readPosition;
-        // if position is 1
-        if(0 < position < 2)
-            insertAtBeginning();
-        else {
-            if(position == (size + 1))
-                insertAtEnd();
-            else if(0 < position < size) {
-                int i = 1;
-                struct node *temp;
-                temp = head;
-                while(i != (position - 1)) {
-                    temp = temp->link;
-                    i++;
-                }
-                struct node *temp1;
-                temp1 = new node;
-                temp1->data = data;
-                temp1->link = NULL;
-                temp->link = temp1;
-                size++;
-            } else
-                std::cout << "INVALID POSITION" << std::endl;
-        }
-        return size;
-    }
-
-    int deleteFromBeginning() {
-        if(size == 0)
-            std::cout << "List is empty" << std::endl;
-        else {
-            struct node *temp;
-            temp = head;
-            head = head->link;
-            temp->link = NULL;
-            int deleted = temp->data;
-            std::cout << "Deleted data: " << deleted << std::endl;
-            size--;
-        }
-        return size;
-    }
-
-    int deleteFromEnd() {
-        if(size == 0)
-            std::cout << "List is empty" << std::endl;
-        else {
-            struct node *temp, *temp1;
-            temp = head;
-            while(temp->link->link != NULL) {
-                temp = temp->link;
+    void add_node(int n) {
+        int x;
+        for(int i = 1; i <= n; i++) {
+            std::cout << "\nDATA" << i << "=";
+            std::cin >> x;
+            node *tmp = new node;
+            tmp->data = x;
+            tmp->next = NULL;
+            if(head == NULL) {
+                head = tmp;
+                tail = tmp;
             }
-            temp1 = temp->link;
-            temp->link = NULL;
-            int deleted = temp1->data;
-            std::cout << "Deleted data: " << deleted << std::endl;
-            size--;
+            else {
+                tail->next = tmp;
+                tail = tail->next;
+            }
         }
-        return size;
     }
-
-    int deletion() {
-        readPosition;
-        if(0 < position < 2)
-            deleteFromBeginning();
-        else {
-            if(position == size)
-                deleteFromEnd();
-            else if(0 < position < size) {
-                int i = 1;
-                struct node *temp;
-                temp = head;
-                while(i != position) {
-                    temp = temp->link;
-                    i++;
-                }
-                struct node *temp1, *temp2;
-                temp1 = temp->link;
-                temp2 = temp1->link;
-                temp->link = temp2;
-                temp1->link = NULL;
-                int deleted = temp1->data;
-                std::cout << "Deleted data: " << deleted << std::endl;
-                size--;
-            } else
-                std::cout << "INVALID POSITION" << std::endl;
-        }
-        return size;
+    node *gethead() {
+        return head;
     }
-
-    void reverse() {
-        struct node *temp, *tail, *prev = NULL, *current = head;
+    void Search(node *head_ref, int key) {
+        node *current = head_ref;
+        int c;
+        bool Flag = false;
         while(current != NULL) {
-            temp = current->link;
-            current->link = prev;
-            prev = current;
-            current = temp;
+            if(current->data == key) {
+                std::cout << "\nSearch Successful !!!";
+                Flag = true;
+                break;
+            }
+            else {
+                current = current->next;
+            }
+            c++;
         }
-        head = prev;
-        std::cout << "The list is now reversed" << std::endl;
-    }
-
-    void display() {
-        std::cout << "The list is: ";
-        struct node *temp;
-        temp = head;
-        while(temp != NULL) {
-            std::cout << temp->data << " -> ";
-            temp = temp->link;
+        if(Flag == true) {
+            c++;
+            std::cout << "\n"
+                 << key << " is in Position " << c;
         }
-        std::cout << "NULL" << std::endl;
+        else {
+            std::cout << "\n"
+                 << key << " is not found";
+        }
     }
-
-    ~LinkedList() {
-        free(head);
+    void Insert(int pos, int x, node *head_ref) {
+        node *tmp = new node;
+        tmp->data = x;
+        tmp->next = NULL;
+        node *ptr = NULL;
+        ptr = head_ref;
+        if(pos == 1) {
+            head = tmp;
+            tmp->next = ptr;
+        }
+        else {
+            for(int i = 1; i < pos - 1; i++) {
+                ptr = ptr->next;
+            }
+            node *ptr1 = NULL;
+            ptr1 = ptr->next;
+            ptr->next = tmp;
+            tmp->next = ptr1;
+        }
+    }
+    void Deletion(int pos, node *head_ref) {
+        if(pos == 1) {
+            node *temp1 = head_ref;
+            head = head_ref->next;
+            delete temp1;
+        }
+        else {
+            node *temp = head_ref;
+            for(int i = 0; i < pos - 2; i++) {
+                if(temp->next != NULL) {
+                    temp = temp->next;
+                }
+            }
+            node *temp2 = temp->next;
+            temp->next = temp->next->next;
+            delete temp2;
+        }
+    }
+    void reverse(node *head_ref, int n) {
+        int i;
+        node *pre, *in, *next;
+        pre = head_ref;
+        in = NULL;
+        next = NULL;
+        while(pre != NULL) {
+            next = pre->next;
+            pre->next = in;
+            in = pre;
+            pre = next;
+        }
+        head = in;
+    }
+    linked_list operator+(linked_list ob2) {
+        linked_list ob3;
+        node *link = gethead();
+        while(link->next != NULL) {
+            link = link->next;
+        }
+        link->next = ob2.gethead();
+        ob3.head = head;
+        std::cout << "gethead() = " << gethead() << ", head = " << head << std::endl;
+        return ob3;
+    }
+    void display(node *head_ref) {
+        if(head_ref == NULL) {
+            std::cout << "NULL" << std::endl;
+        }
+        else {
+            std::cout << head_ref->data << " ";
+            display(head_ref->next);
+        }
+    }
+    ~linked_list() {
+        std::cout << "\nThank U...";
     }
 };
-
 int main() {
-    LinkedList ob;
-    int choice, n;
-    std::cout << "\t1. Insert at beginning\n\t2. Insert at end\n\t3. Insert at specifed position\n\t4. Delete data\n\t5. Reverse list\n\t6. Print list\n\t7. Exit" << std::endl;
+    std::cout << "\n******PRESENTING LINKEDLIST OPERATIONS******\n";
+    std::cout << "\nLet's create linked lists:";
+    linked_list a;
+    linked_list b;
+    linked_list c;
+    node *head;
+    int n1;
+    std::cout << "\nEnter the Number of elements u want to insert in 1st linkedlist: ";
+    std::cin >> n1;
+    a.add_node(n1);
+    std::cout << "\nNOW the linked list is:\n";
+    a.display(a.gethead());
     while(1) {
-        std::cout << "Enter choice: ";
-        std::cin >> choice;
-        switch(choice) {
-            case 1: {
-                ob.insertAtBeginning();
-                std::cout << ob.check() << " data present in the list" << std::endl;
+        std::cout << "\n1.Search An Element\n2.Insertion\n3.Delition\n4.Reversing\n5.Concatenate\n6.exit";
+        int ch;
+        std::cout << "\nPlease enter ur Choice: ";
+        std::cin >> ch;
+        switch(ch) {
+            case 1:
+                int y;
+                std::cout << "\nEnter the Element to search: ";
+                std::cin >> y;
+                a.Search(a.gethead(), y);
+                break;
+            case 2:
+                int posI, x;
+                std::cout << "\nEnter the position to insert element: ";
+                std::cin >> posI;
+                std::cout << "\nEnter the NEW DATA to insert: ";
+                std::cin >> x;
+                a.Insert(posI, x, a.gethead());
+                std::cout << "\nNOW the UPDATED linked list AFTER insertion:\n";
+                a.display(a.gethead());
+                break;
+            case 3:
+                int pos;
+                std::cout << "\nEnter the position u want to DELETE: ";
+                std::cin >> pos;
+                a.Deletion(pos, a.gethead());
+                std::cout << "\nNOW the UPDATED linked list AFTER deletion:\n";
+                a.display(a.gethead());
+                break;
+            case 4:
+                a.reverse(a.gethead(), n1);
+                std::cout << "\nThe REVERSED linked list is:\n";
+                a.display(a.gethead());
+                break;
+            case 5:
+                int n2;
+                std::cout << "\nnumber of elements u want to insert in 2nd linkedlist: ";
+                std::cin >> n2;
+                b.add_node(n2);
+                c = a + b;
+                std::cout << "\nPresenting the Merged linked list\n";
+                c.display(c.gethead());
+                break;
+            case 6:
+                std::cout << "END";
+                break;
+            default:
+                std::cout << "Sorry! Invalid Choice ";
                 break;
             }
-            case 2: {
-                ob.insertAtEnd();
-                std::cout << ob.check() << " data present in the list" << std::endl;
+            if(ch == 6)
                 break;
-            }
-            case 3: {
-                ob.insert();
-                std::cout << ob.check() << " data present in the list" << std::endl;
-                break;
-            }
-            case 4: {
-                ob.deletion();
-                std::cout << ob.check() << " data present in the list" << std::endl;
-                break;
-            }
-            case 5: {
-                ob.reverse();
-                std::cout << ob.check() << " data present in the list" << std::endl;
-                break;
-            }
-            case 6: {
-                ob.display();
-                break;
-            }
-            case 7: {
-                exit(1);
-                break;
-            }
-            default: {
-                std::cout << "Invalid choice" << std::endl;
-                std::cout << ob.check() << " data present in the list" << std::endl;
-            }
-        }
     }
-    std::cout << "END OF PROGRAM" << std::endl;
     return 0;
 }

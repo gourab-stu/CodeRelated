@@ -21,7 +21,7 @@ void push() {
 }
 
 void pop() {
-    if (pop == NULL)
+    if (top == NULL)
         std::cout << "Stack Underflow";
     else {
         temp = top;
