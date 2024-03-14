@@ -1,0 +1,7 @@
+-- SHOW databases;
+-- USE sql6688884;
+-- CREATE TABLE IntelCoreDesktopProcessors (ProcessorNumber VARCHAR(10), BrandModifier VARCHAR(5), Generation INT, Cores INT, Threads INT, BaseFrequency INT, Cache INT, TDP INT, MaxMemorySize INT, MemoryTypes VARCHAR(50), MaxPCIExpressLanes INT, SocketType VARCHAR(15), IntelProcessorGraphics VARCHAR(10), MaxDynamicFrequency INT, MaxResolutionForHDMI VARCHAR(15), PRIMARY KEY (ProcessorNumber));
+-- SHOW TABLES;
+-- DESCRIBE IntelCoreDesktopProcessors;
+-- SELECT * FROM IntelCoreDesktopProcessors;
+-- INSERT INTO IntelCoreDesktopProcessors VALUES();
