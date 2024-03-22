@@ -40,17 +40,13 @@ public:
     }
 
     void InsertionSort() {
-        int j, temp;
-        arr[-1] = -999;
-        for(long long i = 1; i <= size; i++) {
-            j = i;
-            comparison++;
-            while(temp < arr[j - 1]) {
-                arr[j] = arr[j - 1];
+        for(int i = 1; i <= (size - 1); i++) {
+            int nextElement = arr[i], j = i - 1;
+            while((j >= 0) && (arr[j] > nextElement)) {
+                arr[j + 1] = arr[j];
                 j--;
-                comparison++;
             }
-            arr[j] = temp;
+            arr[j + 1] = nextElement;
         }
     }
 

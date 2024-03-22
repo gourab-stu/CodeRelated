@@ -4,21 +4,18 @@
 #include <stdlib.h>
 #define allocate (struct node *)malloc(sizeof(struct node))
 
-struct node
-{
+struct node {
     int data;
     struct node *link;
 };
 
 struct node *top = NULL, *temp;
 
-void push()
-{
+void push() {
     temp = allocate;
-    if (temp == NULL)
+    if(temp == NULL)
         printf("Memory cannot be allocated\n");
-    else
-    {
+    else {
         printf("Enter data to push: ");
         scanf("%d", &temp->data);
         temp->link = top;
@@ -27,12 +24,10 @@ void push()
     }
 }
 
-void pop()
-{
-    if (pop == NULL)
+void pop() {
+    if(pop == NULL)
         printf("Stack Underflow");
-    else
-    {
+    else {
         temp = top;
         top = top->link;
         printf("Popped value = %d", temp->data);
@@ -40,25 +35,20 @@ void pop()
     }
 }
 
-void display()
-{
+void display() {
     temp = top;
-    if (temp == NULL)
+    if(temp == NULL)
         printf("Empty Stack");
-    else
-    {
-        while (temp != NULL)
-        {
+    else {
+        while(temp != NULL) {
             printf("%d ", temp->data);
             temp = temp->link;
         }
     }
 }
 
-void main()
-{
-    while (1)
-    {
+void main() {
+    while(1) {
         printf("\nEnter 1 to push element\n");
         printf("Enter 2 to pop element\n");
         printf("Enter 3 to display stack\n");
@@ -66,25 +56,28 @@ void main()
         printf("\nEnter choice : ");
         int choice;
         scanf("%d", &choice);
-        switch (choice)
-        {
-        case 1:
-            push();
-            break;
-        case 2:
-            pop();
-            break;
-        case 3:
-            printf("\nThe Stack is\n");
-            display();
-            break;
-        case 4:
-            printf("\nEnd of program\n");
-            break;
-        default:
-            printf("\nInvalid input\n");
+        switch(choice) {
+            case 1: {
+                push();
+                break;
+            }
+            case 2: {
+                pop();
+                break;
+            }
+            case 3: {
+                printf("\nThe Stack is\n");
+                display();
+                break;
+            }
+            case 4: {
+                printf("\nEnd of program\n");
+                break;
+            }
+            default: {
+                printf("\nInvalid input\n");
+            }
         }
-        if (choice == 4)
-            break;
+        if(choice == 4) break;
     }
 }
