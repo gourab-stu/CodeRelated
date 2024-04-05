@@ -11,25 +11,17 @@ int input() {
     }
 }
 
-int maxInTheArray() {
-    int max = arr[0];
-    for(int i = 1; i < size; i++)
-        if(max < arr[i])
+void RadixSort() {
+    int i = 1, j = 10, count = 0, max = arr[0], k, index, n1, n2;
+    for(int i = 1; i < size; i++) {
+        if(max < arr[i]) {
             max = arr[i];
-    return max;
-}
-
-int numberOfDigits(int n) {
-    int count = 0;
-    while(n > 0) {
-        n = n / 10;
+        }
+    }
+    while(max > 0) {
+        max = max / 10;
         count++;
     }
-    return count;
-}
-
-void RadixSort() {
-    int i = 1, j = 10, count = numberOfDigits(maxInTheArray()), k, index, n1, n2;
     for(k = 1; k <= count; k++) {
         int arr2D[10][size];
         for(int row = 0; row < 10; row++) {
@@ -61,14 +53,19 @@ void RadixSort() {
 }
 
 void display() {
-    printf("After radix sort the array is\n");
-    for(int i = 0; i < size; i++)
-        printf("arr[%d] = %d\n", i, arr[i]);
+    printf("[ ");
+    for(int i = 0; i < size; i++) {
+        printf("%d", arr[i]);
+        if(i < (size-1))
+            printf(", ");
+    }
+    printf(" ]\n");
 }
 
 int main() {
     input();
     RadixSort();
+    printf("After radix sort the array is\n");
     display();
     return 0;
 }

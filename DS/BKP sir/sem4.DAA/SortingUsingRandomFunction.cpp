@@ -49,16 +49,16 @@ public:
 
     // Function to sort an array using Insertion Sort mechanism
     long long InsertionSort(long arr[], long size) {
-        long long comparison = 0;
-        for(int i = 1; i <= (size - 1); i++) {
-            int nextElement = arr[i], j = i - 1;
-            while((j >= 0) && (arr[j] > nextElement)) {
+        long comparison = 0;
+        arr[-1] = -999;
+        for(int i = -1; i < size; i++) {
+            int j = i, next = arr[j + 1];
+            while(arr[j] > next) {
                 arr[j + 1] = arr[j];
                 j--;
                 comparison++;
             }
-            arr[j + 1] = nextElement;
-            comparison++;
+            arr[j + 1] = next;
         }
         return comparison;
     }
@@ -69,7 +69,6 @@ public:
             copied[i] = original[i];
         }
     }
-
 };
 
 int main() {

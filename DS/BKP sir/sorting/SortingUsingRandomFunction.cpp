@@ -2,8 +2,10 @@
 #include<cstdlib>
 #include<ctime>
 #include<chrono>
+#include "/home/gourab/CodeRelated/DS/BKP sir/sorting/QuickSort.cpp"
 
 class Sort {
+    long long comparison = 0;
 public:
     void randomInput(long arr[], long size) {
         time_t t1;
@@ -16,7 +18,6 @@ public:
 
     // Function to sort an array using Bubble Sort mechanism
     long long BubbleSort(long arr[], long size) {
-        long long comparison = 0;
         for(int i = 0; i <= (size - 2); i++) {
             for(int j = 0; j <= (size - i - 2); j++) {
                 if(arr[j] > arr[j + 1]) {
@@ -50,43 +51,33 @@ public:
 
     // Function to sort an array using Insertion Sort mechanism
     long long InsertionSort(long arr[], long size) {
-        long long comparison = 0;
-        for(int i = 1; i <= (size - 1); i++) {
-            int nextElement = arr[i], j = i - 1;
-            while((j >= 0) && (arr[j] > nextElement)) {
+        long comparison = 0;
+        arr[-1] = -999;
+        for(int i = -1; i < size; i++) {
+            int j = i, next = arr[j + 1];
+            while(arr[j] > next) {
                 arr[j + 1] = arr[j];
                 j--;
                 comparison++;
             }
-            arr[j + 1] = nextElement;
-            comparison++;
+            arr[j + 1] = next;
         }
         return comparison;
-    }
-
-    // Function to find the maximum value in an array
-    int maxInTheArray(long arr[], long size) {
-        int max = arr[0];
-        for(int i = 1; i < size; i++)
-            if(max < arr[i])
-                max = arr[i];
-        return max;
-    }
-
-    // Function to find the number of digits of a number
-    int numberOfDigits(int n) {
-        int count = 0;
-        while(n > 0) {
-            n = n / 10;
-            count++;
-        }
-        return count;
     }
 
     // Function to sort an array using Radix Sort mechanism
     long long RadixSort(long arr[], long size) {
         long long comparison = 0;
-        int i = 1, j = 10, count = numberOfDigits(maxInTheArray(arr, size)), k, index, n1, n2;
+        int i = 1, j = 10, count = 0, max = arr[0], k, index, n1, n2;
+        for(int i = 1; i < size; i++) {
+            if(max < arr[i]) {
+                max = arr[i];
+            }
+        }
+        while(max > 0) {
+            max = max / 10;
+            count++;
+        }
         for(k = 1; k <= count; k++) {
             int arr2D[10][size];
             for(int row = 0; row < 10; row++) {
@@ -119,27 +110,71 @@ public:
         return comparison++;
     }
     
+    // Function to adjust the pivot element in its appropriate position
+    long partition(long arr[], long lower, long higher) {
+        long left, right, temp, pivot, flag;
+        pivot = left = lower;
+        right = higher;
+        flag = 0;
+        while(flag != 1) {
+            while((arr[pivot] <= arr[right]) && (pivot != right)) {
+                comparison++;
+                right--;
+            }
+            if(pivot == right)
+                flag = 1;
+            else if(arr[pivot] > arr[right]) {
+                std::swap(arr[pivot], arr[right]);
+                pivot = right;
+            }
+            if(flag != 1) {
+                while((arr[pivot] >= arr[left]) && (pivot != left)) {
+                    comparison++;
+                    left++;
+                }
+                if(pivot == left)
+                    flag = 1;
+                else if(arr[pivot] < arr[left]) {
+                    std::swap(arr[pivot], arr[left]);
+                    pivot = left;
+                }
+            }
+        }
+        return pivot;
+    }
+
+    // Function to sort an array using Quick Sort mechanism
+    long long QuickSort(long arr[], long lower, long higher) {
+        int pivot;
+        if(lower < higher) {
+            pivot = partition(arr, lower, higher);
+            QuickSort(arr, lower, pivot);
+            QuickSort(arr, (pivot + 1), higher);
+        }
+        return comparison;
+    }
+    
     // Function to copy the 1st array to the 2nd array 
     void copy(long original[], long copied[], long size) {
         for(long long i = 0; i < 100; i++) {
             copied[i] = original[i];
         }
+        comparison = 0;
     }
-
 };
 
 int main() {
     Sort ob;
-    long size = 50000;
-    // std::cout << "Enter the number of inputs: ";
-    // std::cin >> size;
+    long size;
+    std::cout << "Enter the number of inputs: ";
+    std::cin >> size;
     long* org = new long[size];
     long* temp = new long[size];
     ob.randomInput(org, size);
     
     // BubbleSort
-    auto start_time1 = std::chrono::high_resolution_clock::now();
     ob.copy(org, temp, size);
+    auto start_time1 = std::chrono::high_resolution_clock::now();
     std::cout << "\nNumber of comparison in Bubble sort is: " << ob.BubbleSort(temp, size) << std::endl;
     auto end_time1 = std::chrono::high_resolution_clock::now();
     std::chrono::duration<double> duration1 = end_time1 - start_time1;
@@ -147,8 +182,8 @@ int main() {
     std::cout << "\n[Done] exited in " << runtime_seconds1 << " seconds" << std::endl;
     
     // SelectionSort
-    auto start_time2 = std::chrono::high_resolution_clock::now();
     ob.copy(org, temp, size);
+    auto start_time2 = std::chrono::high_resolution_clock::now();
     std::cout << "\nNumber of comparison in Selection sort is: " << ob.SelectionSort(temp, size) << std::endl;
     auto end_time2 = std::chrono::high_resolution_clock::now();
     std::chrono::duration<double> duration2 = end_time2 - start_time2;
@@ -156,8 +191,8 @@ int main() {
     std::cout << "\n[Done] exited in " << runtime_seconds2 << " seconds" << std::endl;
     
     // InsertionSort
-    auto start_time3 = std::chrono::high_resolution_clock::now();
     ob.copy(org, temp, size);
+    auto start_time3 = std::chrono::high_resolution_clock::now();
     std::cout << "\nNumber of comparison in Insertion sort is: " << ob.InsertionSort(temp, size) << std::endl;
     auto end_time3 = std::chrono::high_resolution_clock::now();
     std::chrono::duration<double> duration3 = end_time3 - start_time3;
@@ -165,13 +200,22 @@ int main() {
     std::cout << "\n[Done] exited in " << runtime_seconds3 << " seconds" << std::endl;
 
     // RadixSort
-    auto start_time4 = std::chrono::high_resolution_clock::now();
     ob.copy(org, temp, size);
+    auto start_time4 = std::chrono::high_resolution_clock::now();
     std::cout << "\nNumber of comparison in Radix sort is: " << ob.RadixSort(temp, size) << std::endl;
     auto end_time4 = std::chrono::high_resolution_clock::now();
     std::chrono::duration<double> duration4 = end_time4 - start_time4;
     double runtime_seconds4 = duration4.count();
     std::cout << "\n[Done] exited in " << runtime_seconds4 << " seconds" << std::endl;
+
+    // QuickSort
+    ob.copy(org, temp, size);
+    auto start_time5 = std::chrono::high_resolution_clock::now();
+    std::cout << "\nNumber of comparison in Quick sort is: " << ob.QuickSort(temp, 0, (size - 1)) << std::endl;
+    auto end_time5 = std::chrono::high_resolution_clock::now();
+    std::chrono::duration<double> duration5 = end_time5 - start_time5;
+    double runtime_seconds5 = duration5.count();
+    std::cout << "\n[Done] exited in " << runtime_seconds5 << " seconds" << std::endl;
 
     return 0;
 }
