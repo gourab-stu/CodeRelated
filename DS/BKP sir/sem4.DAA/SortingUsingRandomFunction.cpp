@@ -1,6 +1,4 @@
 #include<iostream>
-#include<cstdlib>
-#include<ctime>
 
 class Sort {
 public:
@@ -15,16 +13,21 @@ public:
 
     // Function to sort an array using Bubble Sort mechanism
     long long BubbleSort(long arr[], long size) {
-        long long comparison = 0;
-        for(int i = 0; i <= (size - 2); i++) {
-            for(int j = 0; j <= (size - i - 2); j++) {
+        long comparison = 0;
+        int flag;
+        for(long i = 0; i < (size - 1); i++) {
+            flag = 0;
+            for(long j = 0; j < (size - i - 1); j++) {
                 if(arr[j] > arr[j + 1]) {
                     int temp = arr[j];
                     arr[j] = arr[j + 1];
                     arr[j + 1] = temp;
+                    flag++;
                 }
                 comparison++;
             }
+            if(flag == 0)
+                break;
         }
         return comparison;
     }

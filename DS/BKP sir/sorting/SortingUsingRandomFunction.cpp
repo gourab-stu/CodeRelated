@@ -1,8 +1,5 @@
 #include<iostream>
-#include<cstdlib>
-#include<ctime>
 #include<chrono>
-#include "/home/gourab/CodeRelated/DS/BKP sir/sorting/QuickSort.cpp"
 
 class Sort {
     long long comparison = 0;
@@ -10,23 +7,26 @@ public:
     void randomInput(long arr[], long size) {
         time_t t1;
         srand((unsigned)time(&t1));
-        if(size == 0)
-            exit(0);
         for(int i = 0; i < size; i++)
             arr[i] = rand();
     }
 
     // Function to sort an array using Bubble Sort mechanism
     long long BubbleSort(long arr[], long size) {
+        long flag;
         for(int i = 0; i <= (size - 2); i++) {
+            flag = 0;
             for(int j = 0; j <= (size - i - 2); j++) {
                 if(arr[j] > arr[j + 1]) {
                     int temp = arr[j];
                     arr[j] = arr[j + 1];
                     arr[j + 1] = temp;
+                    flag++;
                 }
                 comparison++;
             }
+            if(flag == 0)
+                break;
         }
         return comparison;
     }
@@ -34,10 +34,10 @@ public:
     // Function to sort an array using Selection Sort mechanism
     long long SelectionSort(long arr[], long size) {
         long long comparison = 0;
-        for(int i = 0; i <= (size - 2); i++) {
+        for(int i = 0; i < (size - 1); i++) {
             int index = i, temp;
-            for(int j = i + 1; j <= (size - 1); j++) {
-                if (arr[j] < arr[index]) {
+            for(int j = i + 1; j < size; j++) {
+                if(arr[j] < arr[index]) {
                     index = j;
                 }
                 comparison++;
@@ -153,6 +153,57 @@ public:
         }
         return comparison;
     }
+
+    // Function to merge two sorted arrays
+    void merge(long arr[], long low, long mid, long high) {
+        long lengthl = (mid - low) + 1, lengthr = (high - mid), l, r, index;
+        long *left = new long[lengthl], *right = new long[lengthr];
+        for(long i = 0, j = low; j <= mid; i++, j++)
+            left[i] = arr[j];
+        for(long i = 0, j = (mid + 1); j <= high; i++, j++)
+            right[i] = arr[j];
+        l = 0;
+        r = 0;
+        index = low;
+        while((l < lengthl) && (r < lengthr)) {
+            if(left[l] <= right[r]) {
+                arr[index] = left[l];
+                l++;
+                index++;
+                comparison++;
+            } else {
+                arr[index] = right[r];
+                r++;
+                index++;
+                comparison++;
+            }
+        }
+        while(l < lengthl) {
+            arr[index] = left[l];
+            l++;
+            index++;
+            comparison++;
+        }
+        while(r < lengthr) {
+            arr[index] = right[r];
+            r++;
+            index++;
+            comparison++;
+        }
+        delete[] left;
+        delete[] right;
+    }
+
+    // Function to sort an array using Merge Sort mechanism
+    long long MergeSort(long arr[], long low, long high) {
+        if(low < high) {
+            long mid = (low + high) / 2;
+            MergeSort(arr, low, mid);
+            MergeSort(arr, (mid + 1), high);
+            merge(arr, low, mid, high);
+        }
+        return comparison;
+    }
     
     // Function to copy the 1st array to the 2nd array 
     void copy(long original[], long copied[], long size) {
@@ -217,5 +268,14 @@ int main() {
     double runtime_seconds5 = duration5.count();
     std::cout << "\n[Done] exited in " << runtime_seconds5 << " seconds" << std::endl;
 
+    // MergeSort
+    ob.copy(org, temp, size);
+    auto start_time6 = std::chrono::high_resolution_clock::now();
+    std::cout << "\nNumber of comparison in Merge sort is: " << ob.MergeSort(temp, 0, (size - 1)) << std::endl;
+    auto end_time6 = std::chrono::high_resolution_clock::now();
+    std::chrono::duration<double> duration6 = end_time6 - start_time6;
+    double runtime_seconds6 = duration6.count();
+    std::cout << "\n[Done] exited in " << runtime_seconds6 << " seconds" << std::endl;
+    
     return 0;
 }
