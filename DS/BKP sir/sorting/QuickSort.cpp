@@ -1,6 +1,4 @@
 #include<iostream>
-#include<cstdlib>
-#include<ctime>
 
 class cl {
 public:
