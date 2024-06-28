@@ -29,9 +29,10 @@ public class ArrayOp {
             int arr[] = new int[size];
             System.out.println("Enter the array elements");
             for (int i = 0; i < size; i++) {
-                System.out.print("arr[" + i + "]=");
+                System.out.print("arr[" + i + "] = ");
                 arr[i] = s.nextInt();
             }
+            return arr;
         } catch (Exception e) {
             System.out.println("Invalid format for an element / size");
         }
@@ -42,7 +43,7 @@ public class ArrayOp {
      * this method searches for a given element in a given array and returns how
      * many times the element is present in the given array
      */
-    public static int hasHowManyThatElement(int[] array, int element) {
+    public static int occurences(int[] array, int element) {
         List arr = Arrays.asList(array);
         return Collections.frequency(arr, element);
     }
@@ -82,7 +83,7 @@ public class ArrayOp {
      * and returns location[]
      */
     public static int[] linearSearch(int[] array, int element) {
-        int n = hasHowManyThatElement(array, element);
+        int n = occurences(array, element);
         int[] location = new int[n];
         if (n > 0) {
             int i = 0, j = 0;
@@ -153,7 +154,7 @@ public class ArrayOp {
      * the new array
      */
     public static int[] removeElement(int[] array, int element) {
-        if (hasHowManyThatElement(array, element) == array.length)
+        if (occurences(array, element) == array.length)
             return array;
         for (int x : linearSearch(array, element)) {
             array = removeIndex(array, x);
@@ -188,13 +189,63 @@ public class ArrayOp {
         return arr;
     }
 
+    /**
+     * this is the method that countingSort(int[] array) calls to process the given
+     * array
+     */
+    public static void countingSort() {
+        int max = Integer.MIN_VALUE, min = Integer.MAX_VALUE;
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] > max) {
+                max = arr[i];
+            }
+            if (arr[i] < min) {
+                min = arr[i];
+            }
+        }
+        int[] countingArray = new int[max - min + 1], sortedArray = new int[arr.length];
+        for (int i = 0; i < countingArray.length; i++) {
+            countingArray[i] = 0;
+        }
+        for (int i = 0; i < arr.length; i++) {
+            countingArray[arr[i] - min]++;
+        }
+        for (int i = 1; i < countingArray.length; i++) {
+            countingArray[i] = countingArray[i] + countingArray[i - 1];
+        }
+        for (int i = 0; i < arr.length; i++) {
+            sortedArray[--countingArray[arr[i] - min]] = arr[i];
+        }
+        arr = sortedArray;
+    }
+
+    /**
+     * this method uses counting sort algorithm to sort a given array in ascending
+     * order of value
+     */
+    public static int[] countingSort(int[] array) {
+        arr = array;
+        countingSort();
+        return arr;
+    }
+
     public static void reverse() {
     }
 
     /** this method displays the given array passed as argument */
+    public static void display() {
+        System.out.print("[");
+        for (int i = 0; i < arr.length; i++) {
+            System.out.print(arr[i]);
+            if (i < (arr.length - 1))
+                System.out.print(", ");
+        }
+        System.out.println("]");
+    }
+
+    /** this method displays the given array passed as argument */
     public static void display(int[] array) {
-        int i = 0;
-        for (int x : array)
-            System.out.println("arr[" + (i++) + "]=" + x);
+        arr = array;
+        display();
     }
 }

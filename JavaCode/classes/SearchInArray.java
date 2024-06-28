@@ -6,11 +6,11 @@ public class SearchInArray {
         int[] arr = ArrayOp.arrayInitialization();
         System.out.println("Enter the element to search :");
         int x = s.nextInt();
-        if (ArrayOp.hasHowManyThatElement(arr, x) == 0) {
+        if (ArrayOp.occurences(arr, x) == 0) {
             System.out.println("The element is not present in the array");
             System.exit(0);
         } else {
-            System.out.println(ArrayOp.hasHowManyThatElement(arr, x) + " location(s) found\nThe locations is/are");
+            System.out.println(ArrayOp.occurences(arr, x) + " location(s) found\nThe locations is/are");
             ArrayOp.display(ArrayOp.linearSearch(arr, x));
         }
     }

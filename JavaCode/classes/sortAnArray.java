@@ -1,9 +1,8 @@
 public class sortAnArray {
     public static void main(String[] args) {
         int[] arr = ArrayOp.arrayInitialization();
+        arr = ArrayOp.countingSort(arr);
         System.out.println("The sorted array is");
-        arr = ArrayOp.selectionSort(arr);
-        System.out.println(arr.length);
-        ArrayOp.display(arr);
+        ArrayOp.display(ArrayOp.countingSort(arr));
     }
 }
