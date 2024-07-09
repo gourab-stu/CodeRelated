@@ -19,7 +19,7 @@ void display(int arr[], long size) {
 
 int RadixSort(int arr[], int size) {
     int i = 1, j = 10, count = 0, max = arr[0], k, index, n1, n2, comparison = 0;
-    int temp[size], arr2D[size][size];
+    int temp[10], arr2D[10][size];
     for(int t = 1; t < size; t++) {
         if(max < arr[t]) {
             max = arr[t];
@@ -30,7 +30,7 @@ int RadixSort(int arr[], int size) {
         count++;
     }
     for(k = 1; k <= count; k++) {
-        for(int t = 0; t < size; t++) {
+        for(int t = 0; t < 10; t++) {
             temp[t] = 0;
         }
         for(index = 0; index < size; index++) {
