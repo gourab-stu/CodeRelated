@@ -1,27 +1,3 @@
--- .......::::::: QUESTION :::::::.......
-
--- Consider the following schema of a relational database:
---     Customer(cid, cname,c_city, discount)
---     Agents(aid, aname, a_city, communication)
---     Products(pid, pname, p_city, quantity, price)
---     Orders(ord_no, month, cid, aid, pid, qty, total_price)
--- Create table through appropriate SQL commands. 
--- Define all integrity constraints and enter sufficient data through 
--- user-friendly form design (Design the form for any one of the Tables).
-
--- Write SQL command for the following queries:
---     1) Find the agents name who place orders for all products ordered by customer 'Rajat'.
---     2) Get the name of the agents with a name beginning with the letter 'N' who does not 
---     place orders for any product in 'Barasat'.
-
--- .......::::::: CUSTOM DATA INSERTION :::::::.......
-
-SHOW DATABASES;
-
-CREATE DATABASE day1q1;
-
-USE day1q1;
-
 CREATE TABLE CUSTOMER (
     CID INTEGER PRIMARY KEY,
     CNAME VARCHAR(50),
@@ -79,13 +55,17 @@ INSERT INTO CUSTOMER (CID, CNAME, C_CITY, DISCOUNT) VALUES
 (19, 'Nisha', 'Vadodara', 9),
 (20, 'Sneha', 'Ghaziabad', 14);
 
+SELECT * FROM CUSTOMER;
+
 INSERT INTO AGENTS (AID, ANAME, A_CITY, COMMUNICATION) VALUES
-(1, 'Rajat', 'Mumbai', 'Phone'),
+(1, 'Prakash', 'Mumbai', 'Phone'),
 (2, 'Arjun', 'Delhi', 'Email'),
 (3, 'Priya', 'Bangalore', 'WhatsApp'),
 (4, 'Raj', 'Hyderabad', 'Phone'),
 (5, 'Deepak', 'Chennai', 'Email'),
 (6, 'Neha', 'Kolkata', 'WhatsApp');
+
+SELECT * FROM AGENTS;
 
 INSERT INTO PRODUCTS (PID, PNAME, P_CITY, QUANTITY, PRICE) VALUES
 (1, 'Rice', 'Barrackpore', 1000, 50),
@@ -108,6 +88,8 @@ INSERT INTO PRODUCTS (PID, PNAME, P_CITY, QUANTITY, PRICE) VALUES
 (18, 'Condiments', 'Taki', 650, 70),
 (19, 'Honey', 'Hingalganj', 550, 150),
 (20, 'Jam', 'Deganga', 950, 80);
+
+SELECT * FROM PRODUCTS;
 
 INSERT INTO ORDERS (ORD_NO, MONTH, CID, AID, PID, QTY, TOTAL_PRICE) VALUES
 (1, 'January', 1, 1, 1, 10, 500),
@@ -141,7 +123,7 @@ INSERT INTO ORDERS (ORD_NO, MONTH, CID, AID, PID, QTY, TOTAL_PRICE) VALUES
 (29, 'March', 9, 5, 9, 11, 880),
 (30, 'March', 10, 6, 10, 9, 270);
 
--- .......::::::: SOLUTION QUERIES :::::::.......
+SELECT * FROM ORDERS;
 
 -- Q1 
 -- USING NESTED QUERY
@@ -158,6 +140,12 @@ SELECT ANAME
 FROM CUSTOMER, ORDERS, AGENTS
 WHERE CUSTOMER.CID = ORDERS.CID AND AGENTS.AID = ORDERS.AID AND CUSTOMER.CNAME = 'Rajat';
 
+-- USING DIVISION
+SELECT ANAME
+FROM AGENTS A1
+WHERE NOT EXISTS ((SELECT PID FROM CUSTOMER, ORDERS WHERE CUSTOMER.CID = ORDERS.CID AND CUSTOMER.CNAME = 'Rajat') EXCEPT
+                  (SELECT PID FROM ORDERS WHERE A1.AID = ORDERS.AID));
+
 -- Q2
 -- USING NESTED QUERY
 SELECT ANAME
@@ -166,16 +154,6 @@ WHERE AID NOT IN (SELECT AID
                   FROM ORDERS
                   WHERE PID IN (SELECT PID
                                 FROM PRODUCTS
-                                WHERE P_CITY = 'Barasat'));
+                                WHERE P_CITY = 'Barasat')) AND ANAME LIKE 'N%';
 
--- USING JOIN
-SELECT *
-FROM AGENTS, ORDERS, PRODUCTS
-WHERE AGENTS.AID = ORDERS.AID AND PRODUCTS.PID = ORDERS.PID AND PRODUCTS.P_CITY != 'Barasat';
-
-
-SELECT *
-FROM ORDERS
-WHERE PID IN (SELECT PID
-             FROM PRODUCTS
-             WHERE P_CITY = 'Barasat');
+-- DROP DATABASE day1q1;

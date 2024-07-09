@@ -1,23 +1,3 @@
--- Consider the following schema of a relational database:
---     Employee (emp_name, street, city)
---     Work (emp_name,company_name, salary) salary defaults to 10,000
---     Company (company_name, city) company name must be either one of IOC, ABC or XYZ
---     Manages (emp_name, manager_name)
--- Create table through appropriate SQL commands. Define all integrity constraints and enter sufficient data 
--- through user-friendly form design. Write SQL commands for the following queries:
---     a) Find the names, street address and cities of residence of all employees who work for ABC company and
---        earn more than Rs. 10.000.
---     b) Find all employees who do not work for IOC company.
---     c) Find the names of all employees who work for IOC company.
---     d) Assume that the company may be located in several cities. Find all companies located in every city
---        in which ABC company is located.
---     e) Find the names and cities of residence of all employees who work for ABC company.
--- Find all employees who earn more than every employee of IOC company.
-
-CREATE DATABASE day1q3;
-
-USE day1q3;
-
 CREATE TABLE employee (
     emp_name VARCHAR(30) PRIMARY KEY,
     street VARCHAR(30),
@@ -65,6 +45,8 @@ INSERT INTO employee (emp_name, street, city) VALUES
 ('Nisha', 'MG Road', 'Mumbai'),
 ('Sneha', 'AJC Bose Road', 'Maniktala');
 
+SELECT * FROM employee;
+
 INSERT INTO company (company_name, city) VALUES
 ('ABC', 'Kolkata'),
 ('ABC', 'Shyambazar'),
@@ -78,6 +60,8 @@ INSERT INTO company (company_name, city) VALUES
 ('XYZ', 'Barrackpore'),
 ('XYZ', 'Kolkata'),
 ('XYZ', 'Mumbai');
+
+SELECT * FROM company;
 
 INSERT INTO work (emp_name, company_name, salary) VALUES
 ('Aarav', 'IOC', 12000),
@@ -101,6 +85,8 @@ INSERT INTO work (emp_name, company_name, salary) VALUES
 ('Nisha', 'IOC', 12000),
 ('Sneha', 'ABC', 15000);
 
+SELECT * FROM work;
+
 INSERT INTO manages (emp_name, manager_name) VALUES
 ('Aarav', 'Rajat'),
 ('Rajat', 'Rajat'),
@@ -123,12 +109,14 @@ INSERT INTO manages (emp_name, manager_name) VALUES
 ('Nisha', 'Saanvi'),
 ('Sneha', 'Saanvi');
 
+SELECT * FROM manages;
+
 -- q1
 SELECT *
 FROM employee
 WHERE emp_name IN (SELECT emp_name
-                  FROM work
-                  WHERE company_name = 'ABC' AND salary > 10000);
+                   FROM work
+                   WHERE company_name = 'ABC' AND salary > 10000);
 
 -- q2
 SELECT emp_name
@@ -146,22 +134,36 @@ FROM company c1
 WHERE NOT EXISTS ((SELECT c2.city
                    FROM company c2
                    WHERE company_name = 'ABC') EXCEPT (SELECT c3.city
-                                                      FROM company c3
-                                                      WHERE c3.city = c1.city));
+                                                       FROM company c3
+                                                       WHERE c3.city = c1.city));
 
 -- q4 temp
-SELECT
-    *
-FROM
-    company c1
-WHERE
-    EXISTS (
-        SELECT
-            c3.city
-        FROM
-            company c3
-        WHERE
-            c3.city = c1.city
-    );
+SELECT DISTINCT c1.company_name
+FROM company c1
+WHERE NOT EXISTS ((SELECT c2.city FROM company c2 WHERE c2.company_name = 'ABC') EXCEPT
+                  (SELECT c3.city FROM company c3 WHERE c3.company_name = c1.company_name));
+
+-- q4 ChatGPT
+SELECT DISTINCT company_name
+FROM company c1
+WHERE NOT EXISTS (SELECT city
+                  FROM company c2
+                  WHERE c2.company_name = 'ABC' AND NOT EXISTS (SELECT *
+                                                                FROM Company c3
+                                                                WHERE c3.company_name = C1.company_name AND c3.city = c2.city));
+
+-- q5
+SELECT emp_name, city
+FROM employee
+WHERE emp_name IN (SELECT emp_name
+                  FROM work
+                  WHERE company_name = 'ABC');
+
+-- q6
+SELECT emp_name, salary
+FROM work
+WHERE salary > ANY (SELECT salary
+                    FROM work
+                    WHERE company_name = 'IOC');
 
 -- DROP DATABASE day1q3;
