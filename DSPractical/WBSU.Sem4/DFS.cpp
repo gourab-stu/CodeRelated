@@ -16,6 +16,7 @@ int main() {
     for (k = 1; k <= m; k++) {
         cin >> i >> j;
         cost[i][j] = 1;
+        cout << endl;
     }
     cout << "Enter initial vertex to traverse from:";
     cin >> v;
@@ -36,5 +37,6 @@ int main() {
         visit[v] = 0;
         visited[v] = 1;
     }
+    cout << endl;
     return 0;
 }

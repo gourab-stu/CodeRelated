@@ -15,7 +15,7 @@ void bfs(int v)
     }
 }
 
-void main()
+int main()
 {
     int v;
     printf("Enter the number of vertices: ");
@@ -38,4 +38,5 @@ void main()
             printf("%d\t", i);
         else
             printf("BFS is not possible. Not all nodes are reachable");
+    return 0;
 }
