@@ -124,16 +124,7 @@ SELECT emp_name
 FROM work
 WHERE company_name = 'IOC';
 
--- q4
-SELECT c1.company_name
-FROM company c1
-WHERE NOT EXISTS ((SELECT c2.city
-                   FROM company c2
-                   WHERE company_name = 'ABC') MINUS (SELECT c3.city
-                                                       FROM company c3
-                                                       WHERE c3.city = c1.city));
-
--- q4 temp
+-- q4 
 SELECT DISTINCT c1.company_name
 FROM company c1
 WHERE NOT EXISTS ((SELECT c2.city FROM company c2 WHERE c2.company_name = 'ABC') MINUS
