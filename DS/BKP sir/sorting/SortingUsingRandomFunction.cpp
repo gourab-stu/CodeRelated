@@ -1,6 +1,12 @@
 #include<iostream>
 #include<chrono>
 
+struct node {
+    int data;
+    struct node *link;
+};
+
+
 class Sort {
     long long comparison = 0;
 public:
@@ -53,7 +59,7 @@ public:
     long long InsertionSort(long arr[], long size) {
         long comparison = 0;
         arr[-1] = -999;
-        for(int i = -1; i < size; i++) {
+        for(int i = -1; i < (size - 1); i++) {
             int j = i, next = arr[j + 1];
             while(arr[j] > next) {
                 arr[j + 1] = arr[j];
@@ -108,6 +114,47 @@ public:
             comparison++;
         }
         return comparison++;
+    }
+
+    // Function to sort an array using Radix Sort mechanism (implemented using Linked List)
+    long long RadixSortLinkedList(long a[], long n) {
+        long long i, j = 1, k, r, step, count = 0, max = a[0];
+        for (i = 1; i < n; i++) {
+            if (max < a[i]) {
+                max = a[i];
+            }
+        }
+        while (max > 0) {
+            max /= 10;
+            count += 1;
+        }
+        for (step = 1; step <= count; step++, j *= 10) {
+            node *p[10];
+            for (i = 0; i < 10; i++) {
+                p[i] = new node;
+                p[i]->link = nullptr;
+            }
+            for(i = 0; i < n; i++) {
+                r = (a[i] / j) % 10;
+                node *temp = p[r];
+                while (temp->link != nullptr) {
+                    temp = temp->link;
+                }
+                node *temp1 = new node;
+                temp1->data = a[i];
+                temp1->link = nullptr;
+                temp->link = temp1;
+            }
+            k = 0;
+            for (i = 0; i < 10; i++) {
+                node *temp = p[i]->link;
+                while (temp != nullptr) {
+                    a[k++] = temp->data;
+                    temp = temp->link;
+                }
+            }
+        }
+        return count;
     }
     
     // Function to adjust the pivot element in its appropriate position
@@ -204,6 +251,37 @@ public:
         }
         return comparison;
     }
+
+    // Function to sort an array using Counting Sort mechanism
+    long long CountingSort(long input[], long length) {
+        long long max = -99999, min = 99999, count = 0, i;
+        for (i = 0; i < length; i++, count++) {
+            if (input[i] > max) {
+                max = input[i];
+            }
+            if (input[i] < min) {
+                min = input[i];
+            }
+        }
+        long long countingArrayLength = max - min + 1;
+        long long countingArray[countingArrayLength], sorted[length];
+        for (i = 0; i < countingArrayLength; i++, count++) {
+            countingArray[i] = 0;
+        }
+        for (i = 0; i < length; i++, count++) {
+            countingArray[input[i] - min]++;
+        }
+        for (i = 1; i < countingArrayLength; i++, count++) {
+            countingArray[i] = countingArray[i] + countingArray[i - 1];
+        }
+        for (i = 0; i < length; i++, count++) {
+            sorted[--countingArray[input[i] - min]] = input[i];
+        }
+        for (i = 0; i < length; i++) {
+            input[i] = sorted[i];
+        }
+        return count;
+    }
     
     // Function to copy the 1st array to the 2nd array 
     void copy(long original[], long copied[], long size) {
@@ -276,6 +354,24 @@ int main() {
     std::chrono::duration<double> duration6 = end_time6 - start_time6;
     double runtime_seconds6 = duration6.count();
     std::cout << "\n[Done] exited in " << runtime_seconds6 << " seconds" << std::endl;
+
+    // RadixSortLinkedList
+    ob.copy(org, temp, size);
+    auto start_time7 = std::chrono::high_resolution_clock::now();
+    std::cout << "\nNumber of comparison in Radix sort using Linked List is: " << ob.RadixSortLinkedList(temp, size) << std::endl;
+    auto end_time7 = std::chrono::high_resolution_clock::now();
+    std::chrono::duration<double> duration7 = end_time7 - start_time7;
+    double runtime_seconds7 = duration7.count();
+    std::cout << "\n[Done] exited in " << runtime_seconds7 << " seconds" << std::endl;
+
+    // CountingSort
+    ob.copy(org, temp, size);
+    auto start_time8 = std::chrono::high_resolution_clock::now();
+    std::cout << "\nNumber of comparison in Radix sort using Linked List is: " << ob.CountingSort(temp, size) << std::endl;
+    auto end_time8 = std::chrono::high_resolution_clock::now();
+    std::chrono::duration<double> duration8 = end_time8 - start_time8;
+    double runtime_seconds8 = duration8.count();
+    std::cout << "\n[Done] exited in " << runtime_seconds8 << " seconds" << std::endl;
     
     return 0;
 }
