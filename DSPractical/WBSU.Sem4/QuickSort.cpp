@@ -1,13 +1,7 @@
-#include<iostream>
+#include <iostream>
+#include "../../Array.cpp"
 
 class QuickSort {
-public:
-    void swap(int &a, int &b) {
-        a = a + b;
-        b = a - b;
-        a = a - b;
-    }
-
     int partition(int arr[], int lower, int higher) {
         int left, right, temp, pivot, flag;
         pivot = left = lower;
@@ -38,23 +32,14 @@ public:
         return pivot;
     }
 
+public:
     void quickSort(int arr[], int lower, int higher) {
         int pivot;
         if(lower < higher) {
             pivot = partition(arr, lower, higher);
-            quickSort(arr, lower, pivot);
+            quickSort(arr, lower, (pivot - 1));
             quickSort(arr, (pivot + 1), higher);
         }
-    }
-
-    void display(int array[], int length) {
-        std::cout << "[ ";
-        for (int i = 0; i < length; i++) {
-            std::cout << array[i];
-            if (i != (length - 1))
-                std::cout << ", ";
-        }
-        std::cout << " ]" << std::endl;
     }
 };
 
@@ -71,6 +56,6 @@ int main() {
     }
     ob.quickSort(array, 0, (length - 1));
     std::cout << "sorted array" << std::endl;
-    ob.display(array, length);
+    display(array, length);
     return 0;
 }

@@ -1,5 +1,5 @@
-MVI C, 00h ; [C] <- 00
-LXI H, 0F000h ; [L] <- 00, [H] <- F0
+MVI C, 00H ; [C] <- 00
+LXI H, C000H ; [L] <- 00, [H] <- F0
 MOV A, M ; [A] <- [[HL]]
 INX H ; [L] <- 01, [H] <- F0
 ADD M ; [A] <- [A] + [[HL]]
