@@ -11,16 +11,14 @@ CREATE TABLE company (
 );
 
 CREATE TABLE work (
-    emp_name VARCHAR(30),
+    emp_name VARCHAR(30) REFERENCES employee(emp_name),
     company_name VARCHAR(30),
-    salary NUMBER DEFAULT 10000,
-    FOREIGN KEY (emp_name) REFERENCES employee(emp_name)
+    salary NUMBER DEFAULT 10000
 );
 
 CREATE TABLE manages (
-    emp_name VARCHAR(30),
-    manager_name VARCHAR(30),
-    FOREIGN KEY (emp_name) REFERENCES employee(emp_name)
+    emp_name VARCHAR(30) REFERENCES employee(emp_name),
+    manager_name VARCHAR(30)
 );
 
 INSERT INTO employee (emp_name, street, city) VALUES ('Aarav', 'BT Road', 'Barrackpore');
