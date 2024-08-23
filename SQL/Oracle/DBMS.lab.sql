@@ -1,0 +1,17 @@
+CREATE TABLE DEPARTMENT (
+    Dno NUMBER PRIMARY KEY,
+    Dname VARCHAR(50) NOT NULL, 
+    Location VARCHAR(50) DEFAULT 'New Delhi'
+);
+
+CREATE TABLE EMPLOYEE (
+    Eno CHAR(3) PRIMARY KEY, 
+    Ename VARCHAR(50) NOT NULL, 
+    Job_type VARCHAR(50) NOT NULL, 
+    Manager CHAR(3), 
+    Hire_date DATE NOT NULL, 
+    Dno NUMBER REFERENCES DEPARTMENT, 
+    Commission DECIMAL(10, 2), 
+    Salary DECIMAL(7, 2) NOT NULL
+);
+
