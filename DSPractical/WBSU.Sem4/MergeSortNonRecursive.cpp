@@ -4,13 +4,13 @@
 
 int main() {
     int arr[MAX], temp[MAX], i, j, k, n, size, l1, h1, l2, h2;
-    std::cout << "Enter the number of elements: ";
+    std::cout << "Enter size: ";
     std::cin >> n;
     for (i = 0; i < n; i++) {
         std::cout << "Enter element " << i + 1 << ": ";
         std::cin >> arr[i];
     }
-    std::cout << "Unsorted list is: ";
+    std::cout << "Unsorted array is: ";
     for (i = 0; i < n; i++)
         std::cout << arr[i] << "  ";
     for (size = 1; size < n; size = size * 2) {
@@ -41,7 +41,7 @@ int main() {
         for (i = 0; i < n; i++)
             arr[i] = temp[i];
     }
-    std::cout << std::endl << "Sorted list is: ";
+    std::cout << std::endl << "Sorted array is: ";
     for (i = 0; i < n; i++)
         std::cout << arr[i] << "  ";
     std::cout << std::endl;
