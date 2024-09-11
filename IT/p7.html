@@ -1,0 +1,17 @@
+<html>
+    <head>
+        <title>My first JavaScript Program</title>
+    </head>
+    <body>
+        <script>
+            var sec = parseInt(prompt("enter second"));
+            var min = parseInt(sec / 60);
+            sec = sec % 60;
+            var hrs = parseInt(min / 60);
+            min = min % 60;
+            document.write("hours = " + hrs + '<br>');
+            document.write("minutes = " + min + '<br>');
+            document.write("seconds = " + sec + '<br>');
+        </script>
+    </body>
+</html>
