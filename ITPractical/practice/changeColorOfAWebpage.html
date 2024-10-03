@@ -1,0 +1,17 @@
+<html lang="en">
+    <head>
+        <title>Color changing webpage</title>
+        <script>
+            function changeColor() {
+                const color = document.getElementById("color");
+                document.bgColor = color.value;
+            }
+        </script>
+    </head>
+    <body>
+        Choose a color 
+        <input type="color" id="color">
+        <br>
+        <input type="button" value="change color" onclick="changeColor();">
+    </body>
+</html>
