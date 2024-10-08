@@ -1,0 +1,69 @@
+<html>
+    <head>
+        <title>JavaScript Functions</title>
+        <script>
+            function checkUsr() {
+                var usr = document.getElementById("usr");
+                var pass = document.getElementById("pass");
+                if (usr.value == "gourab") {
+                    if (pass.value == "9134") {
+                        document.write("welcome user");
+                    } else {
+                        document.write("you are not an authorized user");
+                    }
+                }
+            }
+            function resetValues() {
+                var usr = document.getElementById("usr");
+                var pass = document.getElementById("pass");
+                usr.value = "";
+                pass.value = "";
+            }
+            function concat() {
+                var str1 = document.getElementById("usr").value;
+                var str2 = document.getElementById("pass").value;
+                var res = document.getElementById("res");
+                res.value = str1.concat(str2);
+            }
+            function charAt() {
+                var index = document.getElementById("index").value;
+                var str = document.getElementById("usr").value;
+                var res = document.getElementById("res");
+                res.value = str.charAt(index);
+            }
+            function indexOf() {
+                var char = document.getElementById("char").value;
+                var str = document.getElementById("usr").value;
+                var res = document.getElementById("res");
+                res.value = str.indexOf(char);
+            }
+            function lastIndexOf() {
+                var char = document.getElementById("char").value;
+                var str = document.getElementById("usr").value;
+                var res = document.getElementById("res");
+                res.value = str.lastIndexOf(char);
+            }
+        </script>
+    </head>
+    <body>
+        Username
+        <input type="text" id="usr">
+        <br>
+        Password
+        <input type="password" id="pass">
+        <br>
+        <input type="button" value="Login" onclick="checkUsr();">
+        <input type="button" value="Reset value" onclick="resetValues();">
+        <input type="button" value="concat" onclick="concat();">
+        <br>
+        <input type="button" value="charAt" onclick="charAt();">
+        <input type="number" id="index">
+        <br>
+        <input type="button" value="indexOf" onclick="indexOf();">
+        <input type="button" value="lastIndexOf" onclick="lastIndexOf();">
+        <input type="text" id="char">
+        <br>
+        Result
+        <input type="text" id="res">
+    </body>
+</html>

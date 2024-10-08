@@ -1,0 +1,19 @@
+<!-- type 3 function -->
+<html>
+    <head>
+        <title>JavaScript Functions | Type 3</title>
+    </head>
+    <body>
+        <script>
+            var n = parseInt(prompt("Enter a value"));
+            function fact(n) {
+                if ((n == 0) || (n == 1))
+                    return 1;
+                else
+                    return n * fact(n - 1);
+            }
+            x = fact(n);
+            document.write("factorial is " + x);
+        </script>
+    </body>
+</html>
