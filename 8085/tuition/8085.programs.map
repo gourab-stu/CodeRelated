@@ -1,0 +1,10 @@
+1. add two 8 bit numbers using immediate addressing mode
+2. 2's complement of a number
+3. perform (A-B) using 2's complement method
+4. 1 + 2 + 3 + 4
+5. 1 + 2 + 3 + ... + 100
+6. multiplication using repeated addition
+7. unpack both the nibbles of an 8 bit number (use STC, CMC, RAR, RAL, RRC)
+8. ODD, EVEN checking
+9. positive, negative checking
+10. count the total no of 1s in lower nibble of an 8 bit number
