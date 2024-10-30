@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <title>Addition</title>
+        <script>
+            function f() {
+                var a = document.getElementById("t1");
+                var b = document.getElementById("t2");
+                var c = document.getElementById("t3");
+                c.value = parseInt(a.value) + parseInt(b.value);
+            }
+        </script>
+    </head>
+    <body>
+        Enter a value
+        <input type="number" id="t1">
+        <br>
+        Enter another value
+        <input type="number" id="t2">
+        <br>
+        Sum
+        <input type="number" id="t3">
+        <br>
+        <input type="button" value="Add" onclick="f();">
+    </body>
+</html>

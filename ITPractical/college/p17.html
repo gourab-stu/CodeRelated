@@ -1,0 +1,21 @@
+<html>
+    <head>
+        <title>Input and Button</title>
+        <script>
+            function f() {
+                var a = document.getElementById("t1");
+                var b = document.getElementById("t2");
+                document.write(a.value + " "+ b.value);
+            }
+        </script>
+    </head>
+    <body>
+        Enter name
+        <input type="text" id="t1">
+        <br>
+        Enter surname
+        <input type="text" id="t2">
+        <br>
+        <input type="button" value="Add" onclick="f();">
+    </body>
+</html>

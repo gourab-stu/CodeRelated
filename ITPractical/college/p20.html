@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <title>User Login</title>
+        <script>
+            function checkUsr() {
+                var usr = document.getElementById("usr");
+                var pass = document.getElementById("pass");
+                if (usr.value == "gourab") {
+                    if (pass.value == "9134") {
+                        document.write("welcome user");
+                    } else {
+                        document.write("you are not an authorized user");
+                    }
+                }
+            }
+        </script>
+    </head>
+    <body>
+        Username
+        <input type="text" id="usr">
+        <br>
+        Password
+        <input type="password" id="pass">
+        <br>
+        <input type="button" value="Login" onclick="checkUsr();">
+    </body>
+</html>
