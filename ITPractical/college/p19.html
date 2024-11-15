@@ -1,46 +1,28 @@
 <html>
-    <head>
-        <title>Calculator</title>
-        <script>
-            function sum() {
-                var a = document.getElementById("t1");
-                var b = document.getElementById("t2");
-                var c = document.getElementById("t3");
-                c.value = parseInt(a.value) + parseInt(b.value);
-            }
-            function sub() {
-                var a = document.getElementById("t1");
-                var b = document.getElementById("t2");
-                var c = document.getElementById("t3");
-                c.value = parseInt(a.value) - parseInt(b.value);
-            }
-            function mul() {
-                var a = document.getElementById("t1");
-                var b = document.getElementById("t2");
-                var c = document.getElementById("t3");
-                c.value = parseInt(a.value) * parseInt(b.value);
-            }
-            function div() {
-                var a = document.getElementById("t1");
-                var b = document.getElementById("t2");
-                var c = document.getElementById("t3");
-                c.value = parseInt(a.value) / parseInt(b.value);
-            }
-        </script>
-    </head>
-    <body>
-        Enter a value
-        <input type="number" id="t1">
-        <br>
-        Enter another value
-        <input type="number" id="t2">
-        <br>
-        Result
-        <input type="number" id="t3">
-        <br>
-        <input type="button" value="+" onclick="sum();">
-        <input type="button" value="-" onclick="sub();">
-        <input type="button" value="*" onclick="mul();">
-        <input type="button" value="/" onclick="div();">
-    </body>
+  <head>
+    <title>User Login</title>
+    <script>
+      function checkUsr() {
+        var usr = document.getElementById("usr");
+        var pass = document.getElementById("pass");
+        if (usr.value == "Virat" && pass.value == "1818") {
+          document.write("welcome user");
+        } else {
+          document.write("you are not an authorized user");
+        }
+      }
+      function resetValues() {
+        var usr = document.getElementById("usr");
+        var pass = document.getElementById("pass");
+        usr.value = "";
+        pass.value = "";
+      }
+    </script>
+  </head>
+  <body>
+    Username <input type="text" id="usr" /><br />
+    Password <input type="password" id="pass" /><br />
+    <input type="button" value="Login" onclick="checkUsr();" /><br />
+    <input type="button" value="Reset value" onclick="resetValues();" />
+  </body>
 </html>

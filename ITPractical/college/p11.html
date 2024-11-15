@@ -1,14 +1,18 @@
 <html>
-    <head>
-        <title>JavaScript Functions</title>
-        <script>
-            let c = parseFloat(prompt("Enter temperature in celcius"));
-            function celciusToFahrenheit(celcius) {
-                let f = celcius * (9.0 / 5.0) + 32.0;
-                document.write("fahrenheit is " + f);
-            }
-            celciusToFahrenheit(c);
-        </script>
-    </head>
-    <body></body>
+  <head>
+    <title>JavaScript Functions | Type 2</title>
+  </head>
+  <body>
+    <script>
+      var n = parseInt(prompt("Enter a value"));
+      function fact(n) {
+        f = 1;
+        for (var i = 1; i <= n; i++) {
+          f = f * i;
+        }
+        document.write("factorial is " + f);
+      }
+      fact(n);
+    </script>
+  </body>
 </html>

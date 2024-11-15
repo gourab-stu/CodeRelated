@@ -1,21 +1,46 @@
 <html>
-    <head>
-        <title>Input and Button</title>
-        <script>
-            function f() {
-                var a = document.getElementById("t1");
-                var b = document.getElementById("t2");
-                document.write(a.value + " "+ b.value);
-            }
-        </script>
-    </head>
-    <body>
-        Enter name
-        <input type="text" id="t1">
-        <br>
-        Enter surname
-        <input type="text" id="t2">
-        <br>
-        <input type="button" value="Add" onclick="f();">
-    </body>
+  <head>
+    <title>Calculator</title>
+    <script>
+      function sum() {
+        var a = document.getElementById("t1");
+        var b = document.getElementById("t2");
+        var c = document.getElementById("t3");
+        c.value = parseInt(a.value) + parseInt(b.value);
+      }
+      function sub() {
+        var a = document.getElementById("t1");
+        var b = document.getElementById("t2");
+        var c = document.getElementById("t3");
+        c.value = parseInt(a.value) - parseInt(b.value);
+      }
+      function mul() {
+        var a = document.getElementById("t1");
+        var b = document.getElementById("t2");
+        var c = document.getElementById("t3");
+        c.value = parseInt(a.value) * parseInt(b.value);
+      }
+      function div() {
+        var a = document.getElementById("t1");
+        var b = document.getElementById("t2");
+        var c = document.getElementById("t3");
+        c.value = parseInt(a.value) / parseInt(b.value);
+      }
+    </script>
+  </head>
+  <body>
+    Enter a value
+    <input type="number" id="t1" />
+    <br />
+    Enter another value
+    <input type="number" id="t2" />
+    <br />
+    Result
+    <input type="number" id="t3" />
+    <br />
+    <input type="button" value="+" onclick="sum();" />
+    <input type="button" value="-" onclick="sub();" />
+    <input type="button" value="*" onclick="mul();" />
+    <input type="button" value="/" onclick="div();" />
+  </body>
 </html>

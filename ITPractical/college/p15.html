@@ -1,20 +1,21 @@
-<!-- type 4 function -->
 <html>
-    <head>
-        <title>JavaScript Functions | Type 4</title>
-    </head>
-    <body>
-        <script>
-            function fact() {
-                var n = parseInt(prompt("Enter a value"));
-                f = 1;
-                for (var i = 1; i <= n; i++) {
-                    f = f * i;
-                }
-                return f;
-            }
-            x = fact();
-            document.write("factorial is " + x);
-        </script>
-    </body>
+  <head>
+    <title>Input and Button</title>
+    <script>
+      function f() {
+        var a = document.getElementById("t1");
+        var b = document.getElementById("t2");
+        document.write(a.value + " " + b.value);
+      }
+    </script>
+  </head>
+  <body>
+    Enter name
+    <input type="text" id="t1" />
+    <br />
+    Enter surname
+    <input type="text" id="t2" />
+    <br />
+    <input type="button" value="Add" onclick="f();" />
+  </body>
 </html>

@@ -1,35 +1,32 @@
 <html>
-    <head>
-        <title>User Login</title>
-        <script>
-            function checkUsr() {
-                var usr = document.getElementById("usr");
-                var pass = document.getElementById("pass");
-                if (usr.value == "gourab") {
-                    if (pass.value == "9134") {
-                        document.write("welcome user");
-                    } else {
-                        document.write("you are not an authorized user");
-                    }
-                }
-            }
-            function resetValues() {
-                var usr = document.getElementById("usr");
-                var pass = document.getElementById("pass");
-                usr.value = "";
-                pass.value = "";
-            }
-        </script>
-    </head>
-    <body>
-        Username
-        <input type="text" id="usr">
-        <br>
-        Password
-        <input type="password" id="pass">
-        <br>
-        <input type="button" value="Login" onclick="checkUsr();">
-        <br>
-        <input type="button" value="Reset value" onclick="resetValues();">
-    </body>
+  <head>
+    <title>Arrays in JavaScript</title>
+    <script>
+      var a = ["virat", "sachin", "dhoni", "rohit", "hardik"];
+      for (i = 0; i < a.length; i++) {
+        document.write(a[i] + "<br>");
+      }
+      document.write("array a: " + a + "<br>");
+      a.push("yuvraj");
+      document.write("After push(): " + a + "<br>");
+      a.pop();
+      document.write("After pop(): " + a + "<br>");
+      a.shift();
+      document.write("After shift(): " + a + "<br>");
+      a.unshift("virat");
+      document.write("After unshift(): " + a + "<br>");
+      a.sort();
+      document.write("After sort(): " + a + "<br>");
+      a.reverse();
+      document.write("After reverse(): " + a + "<br>");
+      var b = new Array();
+      b[0] = "sunday";
+      b[1] = "monday";
+      b[2] = "wednesday";
+      document.write("array b: " + b + "<br>");
+      b.sort().reverse();
+      document.write("After sort() and reverse(): " + b + "<br>");
+    </script>
+  </head>
+  <body></body>
 </html>
