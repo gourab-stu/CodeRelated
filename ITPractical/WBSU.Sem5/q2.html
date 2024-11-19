@@ -1,0 +1,39 @@
+<html>
+  <head>
+    <title> Largest among three number </title>
+    <script>
+      function largest() {
+        var first = parseInt(document.getElementById("first").value);
+        var second = parseInt(document.getElementById("second").value);
+        var third = parseInt(document.getElementById("third").value);
+        var largest = 0;
+        if (first >= second) {
+          if (first >= third) {
+            largest = first;
+          } else {
+            largest = third;
+          }
+        } else {
+          if (second >= third) {
+            largest = second;
+          } else {
+            largest = third;
+          }
+        }
+        document.write("Largest is " + largest);
+      }
+    </script>
+  </head>
+  <body>
+    1st number
+    <input type="number" id="first" />
+    <br />
+    2nd number
+    <input type="number" id="second" />
+    <br />
+    3rd number
+    <input type="number" id="third" />
+    <br />
+    <input type="button" value="Find Largest" onclick="largest();" />
+  </body>
+</html>
