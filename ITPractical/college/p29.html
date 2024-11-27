@@ -1,0 +1,35 @@
+<html>
+  <head>
+    <title>Form | GET</title>
+    <script>
+      function validate() {
+        var usrname = document.getElementsByName("usrname")[0];
+        var pass = document.getElementsByName("pass")[0];
+        if (usrname.value === "") {
+          alert("Username cannot be empty");
+          return false;
+        } else if (pass.value === "") {
+          alert("Password cannot be empty");
+          return false;
+        } else if (usrname.value === "gourab" && pass.value === "9134") {
+          alert("User authentication successful");
+          return true;
+        } else {
+          alert("User credentials mismatch");
+          return false;
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <form method="GET" action="./action.html" onsubmit="return validate()">
+      Username:
+      <input type="text" name="usrname" />
+      <br />
+      Password:
+      <input type="password" name="pass" />
+      <br />
+      <input type="submit" value="Submit" />
+    </form>
+  </body>
+</html>

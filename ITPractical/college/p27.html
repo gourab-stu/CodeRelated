@@ -1,0 +1,56 @@
+<html>
+  <head>
+    <title>Count</title>
+    <script>
+      function count() {
+        var usrname = document.getElementById("usrname").value;
+        var email = document.getElementById("email").value;
+        var vowels = ["a", "A", "e", "E", "i", "I", "o", "O", "u", "U"];
+        var digits = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
+        var outputString = "";
+        var isNumber = false;
+        var vowel = 0;
+        var digit = 0;
+        var lowercase = 0;
+        var uppercase = 0;
+        for (i = 0; i < usrname.length; i++) {
+          for (j = 0; j < vowels.length; j++) {
+            if (usrname[i] === vowels[j]) {
+              vowel++;
+              break;
+            }
+          }
+          isNumber = false;
+          for (j = 0; j < digits.length; j++) {
+            if (usrname[i] === digits[j]) {
+              digit++;
+              isNumber = true;
+              break;
+            }
+          }
+          if (!isNumber) {
+            if (usrname.charAt(i).toLowerCase() == usrname.charAt(i)) lowercase++;
+            else uppercase++;
+          }
+        }
+        outputString = outputString + "No of lowercase letters in username: " + lowercase + "<br>";
+        outputString = outputString + "No of uppercase letters in username: " + uppercase + "<br>";
+        outputString = outputString + "No of vowels in username: " + vowel + "<br>";
+        outputString = outputString + "No of digits in username:  " + digit + "<br>";
+        outputString = outputString + "No of '.' in email: " + (email.split(".").length - 1) + "<br>";
+        outputString = outputString + "Index of '@' in email: " + email.indexOf("@") + "<br>";
+        outputString = outputString + "Last 4 characters of email: " + email.split("@gmail.com")[0].substring(email.split("@gmail.com")[0].length - 4) + "<br>";
+        document.write(outputString);
+      }
+    </script>
+  </head>
+  <body>
+    Username:
+    <input type="text" id="usrname" />
+    <br />
+    Email Id:
+    <input type="email" id="email" />
+    <br />
+    <input type="button" value="click" onclick="count()" />
+  </body>
+</html>
