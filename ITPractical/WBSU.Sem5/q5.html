@@ -1,0 +1,19 @@
+<html>
+  <head>
+    <title> Interest calculation </title>
+    <script>
+      var p = 1000;
+      var n = parseInt(prompt("enter the number of years"));
+      var r = 5;
+      var interest = 0;
+      var str = "";
+      for (i = 1; i <= n; i++) {
+        interest = (p * 1 * r) / 100;
+        str = str + "interest at year no " + i + " = " + interest + "<br>";
+        p = p + interest;
+      }
+      document.write(str);
+    </script>
+  </head>
+  <body></body>
+</html>

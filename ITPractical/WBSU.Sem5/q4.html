@@ -1,0 +1,20 @@
+<html>
+  <head>
+    <title> Sum and average of numbers </title>
+    <script>
+      var num = 0;
+      var sum = 0;
+      var avg = 0;
+      var i = 0;
+      while (true) {
+        num = parseInt(prompt("enter positive numbers only and to terminate enter 0"));
+        if (num == 0) break;
+        i++;
+        sum = sum + num;
+      }
+      avg = sum / i;
+     document.write(`sum = ${sum}\naverage = ${avg}`);
+    </script>
+  </head>
+  <body></body>
+</html>

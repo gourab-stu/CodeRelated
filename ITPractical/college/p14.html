@@ -1,19 +1,17 @@
-<!-- type 3 function -->
 <html>
-    <head>
-        <title>JavaScript Functions | Type 3</title>
-    </head>
-    <body>
-        <script>
-            var n = parseInt(prompt("Enter a value"));
-            function fact(n) {
-                if ((n == 0) || (n == 1))
-                    return 1;
-                else
-                    return n * fact(n - 1);
-            }
-            x = fact(n);
-            document.write("factorial is " + x);
-        </script>
-    </body>
+  <head>
+    <title>Input and Button</title>
+    <script>
+      function f() {
+        var a = document.getElementById("t1");
+        document.write(a.value);
+      }
+    </script>
+  </head>
+  <body>
+    Enter a value
+    <input type="text" id="t1" />
+    <br />
+    <input type="button" value="click me" onclick="f();" />
+  </body>
 </html>

@@ -1,12 +1,42 @@
 <html>
-    <head>
-        <title> Arrays in JavaScript </title>
-        <script>
-            var a = ["preeti", "swapnil", "sritam", "suman", "roopesh"];
-            for (i = 0; i < a.length; i++) {
-                document.write(a[i] + "<br>");
-            }
-        </script>
-    </head>
-    <body></body>
+  <head>
+    <title>Radio and checkbox</title>
+    <script>
+      function getNameGenderSubject() {
+        var n = document.getElementById("name");
+        var gender = document.getElementsByName("gender");
+        var subject = document.getElementsByName("subject");
+        for (i = 0; i < gender.length; i++) {
+          if (gender[i].checked) {
+            break;
+          }
+        }
+        for (j = 0; j < subject.length; j++) {
+          if (subject[j].checked) {
+            break;
+          }
+        }
+        document.writeln(
+          `${n.value} is ${gender[i].value} and ${
+            gender[i].value == "male" ? "his" : "her"
+          } subject is ${subject[j].value}`
+        );
+      }
+    </script>
+  </head>
+  <body>
+    Name:
+    <input type="text" id="name" />
+    <br />
+    Gender: 
+    Male<input type="radio" name="gender" value="male" />
+    Female<input type="radio" name="gender" value="female" />
+    <br />
+    Subject: 
+    Computer<input type="radio" name="subject" value="computer" />
+    Mathematics<input type="radio" name="subject" value="mathematics" />
+    Electronics<input type="radio" name="subject" value="electronics" />
+    <br />
+    <input type="button" value="Click" onclick="getNameGenderSubject();" />
+  </body>
 </html>

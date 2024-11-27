@@ -1,4 +1,5 @@
-movies based on marvel comics.txt
+.prettierrc
+.prettierignore
 out.nam
 desktop.ini
 *.ini
@@ -6,10 +7,10 @@ desktop.ini
 *.class
 *.nam
 *.tr
-# *.excalidraw
-# *.excalidraw.json
-# *.excalidraw.svg
-# *.excalidraw.png
+*.excalidraw
+*.excalidraw.json
+*.excalidraw.svg
+*.excalidraw.png
 .vscode/
 a.out
 temporary/
