@@ -1,10 +1,22 @@
-1. add two 8 bit numbers using immediate addressing mode
-2. 2's complement of a number
-3. perform (A-B) using 2's complement method
-4. 1 + 2 + 3 + 4
-5. 1 + 2 + 3 + ... + 100
-6. multiplication using repeated addition
-7. unpack both the nibbles of an 8 bit number (use STC, CMC, RAR, RAL, RRC)
-8. ODD, EVEN checking
-9. positive, negative checking
-10. count the total no of 1s in lower nibble of an 8 bit number
+1. add two 8 bit numbers using immediate addressing mode 
+2. 2's complement of a number 
+3. perform (A-B) using 2's complement method 
+4. 1 + 2 + 3 + 4 = ? 
+5. 1 + 2 + 3 + ... + 100 = ? 
+6. multiplication using repeated addition 
+7. unpack both the nibbles of an 8 bit number (use STC, CMC, RAR, RAL, RRC) 
+8. ODD, EVEN checking 
+9. positive, negative checking 
+10. count the total no of 1s in lower nibble of an 8 bit number 
+11. count the total no of 1s in an 8 bit number 
+12. count the total no of 0s in right nibble 
+13. count the total no of 0s in an 8 bit number 
+14. check MSB of lower nibble (if MSB = 0, set [D] <- 00 otherwise [D] <- 01)
+15. sum of an array of 8 bit numbers (without carry) 
+16. sum of an array of 8 bit numbers (with carry) 
+17. simulation of INX H 
+18. count the total no of even numbers in an array 
+19. count the total no of +ve/-ve numbers in an array ([D] <- count of +ve numbers, [E] <- count of -ve numbers) 
+20. input B, C store the largest in D 
+
+ARRAY : 15, 16, 18, 19
