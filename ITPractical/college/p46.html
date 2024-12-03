@@ -1,0 +1,18 @@
+<html>
+  <head>
+    <title>Phone number scripting in JavaScript</title>
+  </head>
+  <body>
+    <script>
+      const s1 = "911234567890";
+      const s2 = "+912874257311";
+      const s3 = "111";
+      const s4 = "+";
+      const re = /^[+](91)\d{10}$/;
+      console.log(re);
+      document.write(re.test(s1));
+      document.write(re.test(s2));
+      document.write(re.test(s3));
+    </script>
+  </body>
+</html>
