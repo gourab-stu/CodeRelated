@@ -1,0 +1,20 @@
+<html>
+  <head>
+    <title>Count and print all factors</title>
+  </head>
+  <body>
+    <script>
+      var num = parseInt(prompt("Enter a number"));
+      var count = 0;
+      var str = "";
+      for (i = 1; i <= num; i++) {
+        if (num % i == 0) {
+          count++;
+          str = str + "<br>" + i;
+        }
+      }
+      str = count + " factor(s) of " + num + " is/are:" + str;
+      document.write(str);
+    </script>
+  </body>
+</html>
