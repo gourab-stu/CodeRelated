@@ -1,0 +1,10 @@
+MVI B, 04H 
+MVI C, 03H 
+MOV A, C 
+RLC 
+RLC 
+RLC 
+RLC 
+ORA B 
+MOV D, A 
+HLT 

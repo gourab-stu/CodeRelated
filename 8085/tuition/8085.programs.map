@@ -18,5 +18,12 @@
 18. count the total no of even numbers in an array 
 19. count the total no of +ve/-ve numbers in an array ([D] <- count of +ve numbers, [E] <- count of -ve numbers) 
 20. input B, C store the largest in D 
+21. input B, C if they are equal [D] <- 01 otherwise [D] <- 00 
+22. count the total number of odd and positive numbers in an array 
+23. count the total number of odd and negative numbers in an array 
+24. count the total number of even and positive numbers in an array 
+25. count the total number of even and negative numbers in an array 
+26. check if both nibbles are equal or not, if equal [D] <- 01 otherwise [D] <- 00 
+27. [B] <- 04, [C] <- 03, [D] <- 34
 
 ARRAY : 15, 16, 18, 19
