@@ -4,9 +4,16 @@
   </head>
   <body>
     <script>
-      const st = "Bhairab Ganguly College BKC College";
-      const re = /College/;
-      document.write(st.match(re));
+      const str1 = "911234567890";
+      const str2 = "+912874257311";
+      const str3 = "111";
+      const str4 = "+";
+      const re = /^[+](91)\d{10}$/;
+      console.log(re);
+      document.write(re.test(str1) + "<br>");
+      document.write(re.test(str2) + "<br>");
+      document.write(re.test(str3) + "<br>");
+      document.write(re.test(str4) + "<br>");
     </script>
   </body>
 </html>

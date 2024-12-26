@@ -1,0 +1,32 @@
+01. alert()
+02. confirm()
+03. confirm() and document.write()
+04. prompt() and document.write()
+05. taking name, surname and print on webpage
+06. taking number via prompt and printing sum, different, product, quotient
+07. taking seconds as input and printing hours, minutes and seconds
+08. functions
+09. celcius to farenheit
+10. without return type without parameter
+11. without return type with parameter
+12. with return type with parameter
+13. with return type without parameter
+14. getting value from textbox and printing in webpage
+15. getting 2 values from textbox and printing in webpage
+16. two numbers sum using textbox
+17. calculator using textbox
+18. user authentication
+19. manual reset button
+20. string functions
+21. array functions
+22. radio button
+23. form design with radio button
+24. innerHTML
+25. outerHTML
+26. DOM
+27. college practical internal
+28. form validation
+29. GET
+30. POST
+31. RegEx
+32. phone number scripting

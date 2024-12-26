@@ -4,9 +4,98 @@
   </head>
   <body>
     <script>
-      const st = "Bhairab Ganguly College";
-      const re = /College/;
-      document.write(st.match(re));
+      // program 1
+      document.write("<b>program 1</b><br>");
+      const str1 = "Bhairab Ganguly College";
+      const re1 = /College/;
+      document.write(str1.match(re1) + "<br>");
+      // program 2
+      document.write("<b>program 2</b><br>");
+      const str2 = "Bhairab Ganguly College BKC College";
+      document.write(str2.match(re1) + "<br>");
+      // program 3
+      document.write("<b>program 3</b><br>");
+      const re2 = /College/g;
+      document.write(str2.match(re2) + "<br>");
+      // program 4
+      document.write("<b>program 4</b><br>");
+      const str3 = "Bhairab Ganguly College BKC college";
+      document.write(str3.match(re2) + "<br>");
+      // program 5
+      document.write("<b>program 5</b><br>");
+      const re3 = /College/gi;
+      document.write(str3.match(re3) + "<br>");
+      // program 6
+      document.write("<b>program 6</b><br>");
+      document.write(re3.test(str3) + "<br>");
+      // program 7
+      document.write("<b>program 7</b><br>");
+      const str4 = "Motijhil College";
+      const str5 = "Belgharia School";
+      const re4 = /^Bhairab/;
+      document.write(re4.test(str1) + "<br>");
+      document.write(re4.test(str4) + "<br>");
+      document.write(re4.test(str5) + "<br>");
+      // program 8
+      document.write("<b>program 8</b><br>");
+      const str6 = "bhairab Ganguly College";
+      document.write(re4.test(str6) + "<br>");
+      document.write(re4.test(str4) + "<br>");
+      document.write(re4.test(str5) + "<br>");
+      // program 9
+      document.write("<b>program 9</b><br>");
+      const re5 = /^Bhairab/gi;
+      document.write(re5.test(str6) + "<br>");
+      document.write(re5.test(str4) + "<br>");
+      document.write(re5.test(str5) + "<br>");
+      // program 10
+      document.write("<b>program 10</b><br>");
+      const re6 = /College$/;
+      document.write(re6.test(str6) + "<br>");
+      document.write(re6.test(str4) + "<br>");
+      document.write(re6.test(str5) + "<br>");
+      // program 11
+      document.write("<b>program 11</b><br>");
+      const str7 = "ABC";
+      const str8 = "ZBC";
+      const str9 = "YBC";
+      const re7 = /[Y|Z]BC/;
+      document.write(re7.test(str7) + "<br>");
+      document.write(re7.test(str8) + "<br>");
+      document.write(re7.test(str9) + "<br>");
+      // program 12
+      document.write("<b>program 12</b><br>");
+      const str10 = "AVIK DEY";
+      const str11 = "SUSMITA DEY";
+      const str12 = "SUCHISMITA DEY";
+      const re8 = /(AVIK|SUSMITA)\sDEY/;
+      document.write(re8.test(str10) + "<br>");
+      document.write(re8.test(str11) + "<br>");
+      document.write(re8.test(str12) + "<br>");
+      // program 13
+      document.write("<b>program 13</b><br>");
+      const str13 = "12";
+      const str14 = "A2";
+      const str15 = "AB";
+      const re9 = /\d\d/;
+      document.write(re9.test(str13) + "<br>");
+      document.write(re9.test(str14) + "<br>");
+      document.write(re9.test(str15) + "<br>");
+      // program 14
+      document.write("<b>program 14</b><br>");
+      const re10 = /\d{2}/;
+      document.write(re10.test(str13) + "<br>");
+      document.write(re10.test(str14) + "<br>");
+      document.write(re10.test(str15) + "<br>");
+      // program 15
+      document.write("<b>program 15</b><br>");
+      const str16 = "1234567890";
+      const str17 = "287425731112";
+      const str18 = "111";
+      const re11 = /^\d{10}$/;
+      document.write(re11.test(str16) + "<br>");
+      document.write(re11.test(str17) + "<br>");
+      document.write(re11.test(str18) + "<br>");
     </script>
   </body>
 </html>
