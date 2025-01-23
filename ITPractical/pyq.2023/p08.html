@@ -1,12 +1,15 @@
 <html>
   <head>
     <title>Count vowels</title>
+    <script>
+      function countVowels(str) {
+        return str.match(/[a|e|i|o|u|A|E|I|O|U]/g).length;
+      }
+    </script>
   </head>
   <body>
-    <script>
-      var str = prompt("Enter a string");
-      const re = /[a|e|i|o|u|A|E|I|O|U]/g;
-      document.write("The string contains " + str.match(re).length + " vowels ");
-    </script>
+    Enter a string
+    <input type="text" id="str">
+    <input type="button" value="count vowels" onclick="document.write('number of vowels is ' + countVowels(document.getElementById('str').value))">
   </body>
 </html>
