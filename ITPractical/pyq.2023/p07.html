@@ -1,0 +1,13 @@
+<html>
+  <head>
+    <title>Date time formatting</title>
+  </head>
+  <body>
+    <script>
+      const date = new Date();
+      var day = date.toLocaleDateString("en-US", { weekday:"long" });
+      var time = date.toLocaleTimeString("en-US", { hour:"2-digit", minute:"2-digit", second:"2-digit", hour12:true })
+      document.write("Today is : " + day + " Current Time is : " + time);
+    </script>
+  </body>
+</html>

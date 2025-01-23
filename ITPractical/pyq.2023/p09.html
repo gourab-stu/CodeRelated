@@ -1,0 +1,16 @@
+<html>
+  <head>
+    <title>Print squares and cubes</title>
+  </head>
+  <body>
+    <script>
+      var table = "Number | Square | Cube\n";
+      for (let i = 5; i <= 15; i++) {
+        const square = i * i;
+        const cube = i * i * i;
+        table += `${i}    | ${square}    | ${cube}\n`;
+      }
+      alert(table);
+    </script>
+  </body>
+</html>

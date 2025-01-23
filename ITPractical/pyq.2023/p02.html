@@ -1,0 +1,23 @@
+<html>
+  <head>
+    <title>Difference of dates in days</title>
+    <script>
+      function diff() {
+        var date1 = document.getElementById("date1");
+        var date2 = document.getElementById("date2");
+        var difference = (date1.valueAsDate - date2.valueAsDate) / (1000*60*60*24);
+        if(difference >= 0)
+          document.write("difference is " + difference + " days");
+        else
+          document.write("difference is " + (difference * (-1)) + " days");
+      }
+    </script>
+  </head>
+  <body>
+    Enter 1st date
+    <input type="date" id="date1"><br>
+    Enter 2nd date
+    <input type="date" id="date2"><br>
+    <input type="button" value="find difference" onclick="diff()">
+  </body>
+</html>

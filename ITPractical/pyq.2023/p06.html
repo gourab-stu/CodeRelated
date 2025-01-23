@@ -1,0 +1,22 @@
+<html>
+  <head>
+    <title>Email validation</title>
+    <script>
+      function validate() {
+        var email = document.getElementById("email").value;
+        var msg = document.getElementById("msg");
+        const re = /^[a-z]([a-z]|[0-9]|[_.-])*@[a-z]+\.([a-z])+$/;
+        if(re.test(email))
+          msg.innerText = "validation complete";
+        else
+          msg.innerText = "email is not in correct format";
+      }
+    </script>
+  </head>
+  <body>
+    Enter email
+    <input type="text" id="email">
+    <input type="button" value="validate" onclick="validate()"><br>
+    <p id="msg"></p>
+  </body>
+</html>

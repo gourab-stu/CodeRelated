@@ -1,0 +1,25 @@
+<html>
+  <head>
+    <title>Temperature conversion</title>
+    <script>
+      function convert() {
+        var temp = parseFloat(document.getElementById("temp").value);
+        var mode = document.getElementsByName("mode");
+        if(mode[0].checked) {
+          var celcius = 5.0 + (temp - 32.0) / 9.0;
+          document.write("temperature in celcius is " + celcius);
+        } else {
+          var fahrenheit = (temp / 5.0) * 9.0 + 32.0;
+          document.write("temperature in fahrenheit is " + fahrenheit);
+        }
+      }
+    </script>
+  </head>
+  <body>
+    Enter temperature
+    <input type="text" id="temp"><br>
+    <input type="radio" name="mode" id="celcius">convert to celcius<br>
+    <input type="radio" name="mode" id="fahrenheit">convert to fahrenheit<br>
+    <input type="button" value="convert" onclick="convert()">
+  </body>
+</html>

@@ -1,0 +1,24 @@
+<html>
+  <head>
+    <title>Name validation</title>
+    <script>
+      function validate() {
+        var name = document.getElementById("name").value;
+        var msg = document.getElementById("msg");
+        const re = /^((([A-Z])([a-z])+ ([A-Z])([a-z])+)|([A-Z]([a-z])+))/;
+        if(name.length == 0)
+          msg.innerText = "name cannot be empty";
+        else if(re.test(name))
+          msg.innerText = "name is valid";
+        else
+          msg.innerText = "name should only contain letters";
+      }
+    </script>
+  </head>
+  <body>
+    Enter name
+    <input type="text" id="name">
+    <input type="button" value="validate" onclick="validate()"><br>
+    <p id="msg"></p>
+  </body>
+</html>
