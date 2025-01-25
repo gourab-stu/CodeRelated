@@ -5,7 +5,7 @@
       function validate() {
         var email = document.getElementById("email").value;
         var msg = document.getElementById("msg");
-        const re = /^[a-z]([a-z]|[0-9]|[_.-])*@[a-z]+\.([a-z])+$/;
+        const re = /^[a-z]([a-z0-9_.-])*@[a-z]+\.[a-z]+$/;
         if(re.test(email))
           msg.innerText = "validation complete";
         else
