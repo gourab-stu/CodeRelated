@@ -5,7 +5,7 @@
       function validate() {
         var name = document.getElementById("name").value;
         var msg = document.getElementById("msg");
-        const re = /(^(([A-Za-z])+ ([A-Za-z])+$)|^([A-Za-z]+)$)/;
+        const re = /(^(([A-Za-z])+ ([A-Za-z])+$)|(^[A-Za-z]+$))/;
         if(name.length == 0)
           msg.innerText = "name cannot be empty";
         else if(re.test(name))
