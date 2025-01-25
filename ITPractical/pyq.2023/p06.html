@@ -7,7 +7,7 @@
         var msg = document.getElementById("msg");
         const re = /^[a-z]([a-z0-9_.-])*@[a-z]+\.[a-z]+$/;
         if(re.test(email))
-          msg.innerText = "validation complete";
+          msg.innerText = "email is valid";
         else
           msg.innerText = "email is not in correct format";
       }
