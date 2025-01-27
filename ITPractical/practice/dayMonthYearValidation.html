@@ -4,18 +4,20 @@
     <script>
       function validate() {
         var day = parseInt(document.getElementById("day").value);
-        var month = parseInt(document.getElementById("month").value) - 1;
+        var month = parseInt(document.getElementById("month").value);
         var year = parseInt(document.getElementById("year").value);
-        var leapYearDays = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
-        var yearDays = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
-        var arr = [];
+        var arr = [
+          ["", 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31],
+          ["", 31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+        ];
+        var i, j = month;
         var msg = "date is invalid";
-        if (year > 0 && month >= 0 && month <= 11 && day >=1 && day <= 31) {
+        if (year > 0 && month >= 1 && month <= 12 && day >= 1) {
           if ((year % 100 == 0 && year % 400 == 0) || (year % 100 != 0 && year % 4 == 0))
-            arr = leapYearDays;
+            i = 1;
           else
-            arr = yearDays;
-          if (day <= arr[month])
+            i = 0;
+          if (day <= arr[i][j])
             msg = "this is a valid date";
         }
         document.write(msg);
