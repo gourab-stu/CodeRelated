@@ -1,0 +1,32 @@
+<html>
+  <head>
+    <title>Bubble Sort in Javascript</title>
+  </head>
+  <body>
+    <script>
+      function bubbleSort(a) {
+        for(var i = 0; i < (a.length - 1); i++) {
+        var flag = 0;
+          for(var j = 0; j < (a.length - i); j++) {
+            if(a[j] > a[j + 1]) {
+              var temp = a[j];
+              a[j] = a[j + 1];
+              a[j + 1] = temp;
+              flag++;
+            }
+          }
+          if(flag == 0) break;
+        }
+        return a;
+      }
+      var arr = [];
+      var n = 1;
+      while (true) {
+        n = parseInt(prompt("enter a number (press 0 to stop)"));
+        if (n == 0) break;
+        arr.push(n);
+      }
+      document.write("sorted array: " + bubbleSort(arr));
+    </script>
+  </body>
+</html>

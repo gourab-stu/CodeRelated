@@ -1,0 +1,20 @@
+<html>
+  <head>
+    <title>sort method in javascript</title>
+  </head>
+  <body>
+    <script>
+      var arr = [];
+      var n = 1;
+      while (true) {
+        n = parseInt(prompt("enter a number (press 0 to stop)"));
+        if (n == 0) break;
+        arr.push(n);
+      }
+      arr.sort((a, b) => {
+        return (a - b);
+      });
+      document.write("sorted array: " + arr);
+    </script>
+  </body>
+</html>
