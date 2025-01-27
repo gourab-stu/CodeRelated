@@ -1,0 +1,13 @@
+<html>
+  <head>
+    <title>Binary to Decimal</title>
+  </head>
+  <body>
+    <script>
+      var bin = prompt("Enter a binary number");
+      var dec = parseInt(bin, 2);
+      if (isNaN(dec)) document.write("input is not a binary number");
+      else document.write(`binary = ${bin}<br>decimal = ${dec}`);
+    </script>
+  </body>
+</html>

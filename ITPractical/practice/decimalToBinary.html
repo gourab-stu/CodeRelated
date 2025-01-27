@@ -1,0 +1,18 @@
+<html>
+  <head>
+    <title>Decimal to Binary</title>
+    <script>
+      function parseBin(num) {
+        if (num < 2) return num;
+        else return parseBin(Math.floor(num / 2)) * 10 + (num % 2);
+      }
+    </script>
+  </head>
+  <body>
+    <script>
+      var dec = prompt("Enter a decimal number");
+      var bin = parseBin(parseInt(dec, 10));
+      document.write(`decimal = ${dec}<br>binary = ${bin}`);
+    </script>
+  </body>
+</html>
