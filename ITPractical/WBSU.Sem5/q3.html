@@ -1,28 +1,13 @@
 <html>
   <head>
     <title>Factorial</title>
-    <script>
-      function fact(n) {
-        if (n == 0 || n == 1) {
-          return n;
-        } else {
-          return n * fact(n - 1);
-        }
-      }
-
-      function f() {
-        var num = parseInt(document.getElementById("num").value);
-        var result = document.getElementById("result");
-        var r = fact(num);
-        result.value = r;
-      }
-    </script>
   </head>
   <body>
-    Enter number
-    <input type="number" id="num" onchange="f();" />
-    <br />
-    Factorial
-    <input type="number" id="result" />
+    <script>
+      var num = parseInt(prompt("enter a number")), fact = 1;
+      for (var i = 1; i <= num; i++)
+        fact *= i;
+      document.write(`factorial of ${num} is ${fact}`);
+    </script>
   </body>
 </html>

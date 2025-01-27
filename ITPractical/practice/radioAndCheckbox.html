@@ -1,0 +1,32 @@
+<html>
+  <head>
+    <title>Form design using radio and checkbox</title>
+    <script>
+      function f() {
+        var n = document.getElementById("n");
+        var gender = document.getElementsByName("gender");
+        var course = document.getElementsByName("course");
+        var str = n.value + " is";
+        for(var i = 0; i < gender.length ; i++) {
+          if (gender[i].checked)
+            str = str + " " + gender[i].value;
+        }
+        str = str + " and course is/are";
+        for(var i = 0; i < course.length ; i++) {
+          if (course[i].checked)
+            str = str + " " + course[i].value;
+        }
+        document.write(str);
+      }
+    </script>
+  </head>
+  <body>
+    Name
+    <input type="text" id="n"><br>
+    <input type="radio" name="gender" value="male">male
+    <input type="checkbox" name="course" value="B.Sc.">B.Sc.<br>
+    <input type="radio" name="gender" value="female">female
+    <input type="checkbox" name="course" value="BCA">BCA<br>
+    <input type="button" onclick="f()" value="click">
+  </body>
+</html>

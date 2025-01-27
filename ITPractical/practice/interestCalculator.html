@@ -1,0 +1,15 @@
+<html>
+  <head>
+    <title>Interest calculator</title>
+  </head>
+  <body>
+    <script>
+        var p = parseInt(prompt("enter the principal amount"));
+        var t = parseInt(prompt("enter the time (in years)"));
+        var r = parseInt(prompt("enter the rate of interest yearly (%)"));
+        var i = (p*t*r) / 100;
+        var a = p + i;
+        document.write(`interest = ${i}<br>net amount = ${a}`);
+    </script>
+  </body>
+</html>
