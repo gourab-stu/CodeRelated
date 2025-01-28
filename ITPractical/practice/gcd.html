@@ -1,0 +1,17 @@
+<html>
+  <head>
+    <title>GCD of two numbers</title>
+  </head>
+  <body>
+    <script>
+      function GCD(a, b) {
+        if (b % a == 0) return a;
+        else return GCD((b % a), b);
+      }
+      var a = parseInt(prompt("Enter the smaller number"));
+      var b = parseInt(prompt("Enter the larger number"));
+      var c = GCD(a, b);
+      document.write("The GCD is " + c);
+    </script>
+  </body>
+</html>

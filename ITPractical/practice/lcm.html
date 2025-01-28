@@ -1,0 +1,23 @@
+<html>
+  <head>
+    <title>LCM of two numbers</title>
+  </head>
+  <body>
+    <script>
+      function GCD(a, b) {
+        if (b % a == 0) return a;
+        else return GCD((b % a), b);
+      }
+      function LCM(a, b) {
+        var gcd = GCD(a, b);
+        var lcm = gcd * (a / gcd) * (b / gcd);
+        // var lcm = (a * b) / gcd;
+        return lcm;
+      }
+      var a = parseInt(prompt("Enter the smaller number"));
+      var b = parseInt(prompt("Enter the larger number"));
+      var c = LCM(a, b);
+      document.write("The LCM is " + c);
+    </script>
+  </body>
+</html>
