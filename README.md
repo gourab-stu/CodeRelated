@@ -1,7 +1,7 @@
-# Office365 (2021) Free 
-[Download file][office365-2021]
+# Software
+[Turbo C++ For Windows 8, 10, 11 32bit/64bit (Graphics driver included)][turbo-c++]
 
-[Instructions to activate office][getoffice365-productKey]
+Office365 (2021) Free [ [Download file][office365-2021] ] [ [Instructions to activate office][getoffice365-productKey] ]
 
 # Java Development Kit
 ## Windows
@@ -23,7 +23,7 @@
 [oracle jdk 22 (64 bit)][jdk22-linux]
 
 # DBMS
-[Oracle 10G XE (web based)(only for windows)][oracle-10gxe-win]
+[Oracle 10G XE (web based, only for windows)][oracle-10gxe-win]
 
 [office365-2021]: https://officecdn.microsoft.com/db/492350f6-3a01-4f97-b9c0-c7c6ddf67d60/media/en-us/ProPlus2021Retail.img
 
@@ -46,3 +46,5 @@
 [jdk22-linux]: https://www.mediafire.com/file/zc8cpgw692p534s/jdk-22_linux-x64_bin.deb
 
 [oracle-10gxe-win]: https://www.mediafire.com/file/r90otkvtf86q4xk/OracleXE.exe
+
+[turbo-c++]: https://www.mediafire.com/file/gxd4rhi6gbca1b0/TurboCSetup.exe/file
