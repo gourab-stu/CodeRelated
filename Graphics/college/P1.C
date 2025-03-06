@@ -1,7 +1,8 @@
+// basics of taking a point as input
 #include<stdio.h>
 #include<conio.h>
 
-int main() {
+void main() {
     int x1, y1, x2, y2;
     float m;
     clrscr();
@@ -12,5 +13,4 @@ int main() {
     m = (float)(y2 - y1) / (float)(x2 - x1);
     printf("m = %f", m);
     getch();
-    return 0;
 }
