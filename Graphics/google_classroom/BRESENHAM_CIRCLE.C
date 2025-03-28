@@ -1,6 +1,5 @@
 // Bresenham circle drawing algorithm
 #include<graphics.h>
-#include<math.h>
 
 void bresenham_circle(int a, int b, int radius) {
     int x, y;

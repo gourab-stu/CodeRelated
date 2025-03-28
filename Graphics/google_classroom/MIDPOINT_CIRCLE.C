@@ -1,6 +1,5 @@
 // Midpoint circle drawing algorithm
 #include<graphics.h>
-#include<math.h>
 
 void midpoint_circle(int a, int b, int radius) {
     int x, y;
