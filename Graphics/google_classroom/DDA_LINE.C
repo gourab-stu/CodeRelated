@@ -18,7 +18,7 @@ void DDA_line(int x1, int y1, int x2, int y2) {
     }
 }
 
-int main() {
+void main() {
     int gd = DETECT, gm;
     int x1, y1, x2, y2;
     initgraph(&gd, &gm, "C:\\TC\\BGI");
@@ -29,5 +29,4 @@ int main() {
     DDA_line(x1, y1, x2, y2);
     getch();
     closegraph();
-    return 0;
 }
